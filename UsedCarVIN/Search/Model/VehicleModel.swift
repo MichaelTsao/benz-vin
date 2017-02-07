@@ -51,10 +51,10 @@ class VehicleModel: NSObject {
     var trim:String?                //内饰
     var prodDate:String?                //生产年份 Date
     var regDate:String?                //上牌日期 Date
-    var age:Int?                //车龄 int
-    var newPrice:Int?                //新车指导价
+    var age:String?                //车龄 int
+    var newPrice:String?                //新车指导价
     var used:Int?                //过户次数
-    var miles:Int?                //里程
+    var miles:String?                //里程
     var repair:Int?                //维修次数
     var orderRepair:Int?                //一般维修次数
     var sprayRepair:Int?                //喷漆维修次数
@@ -62,7 +62,7 @@ class VehicleModel: NSObject {
     var claimDemage:Int?                //索赔工作次数
     var maintain:String?                //保养规律与否
     var maintainTimes:Int?                //保养次数
-    var averageMiles:Int?                //平均间隔里程
+    var averageMiles:String?                //平均间隔里程
     
 //    "regNo":"京NXX651",
 //    "model":"M-CLASS",
@@ -193,10 +193,10 @@ class VehicleModel: NSObject {
         self.trim           = orcData.object(forKey: "trim") as! String?//内饰
         self.prodDate      = orcData.object(forKey: "prodDate") as! String?//生产年份 Date
         self.regDate           = orcData.object(forKey: "regDate") as! String?//上牌日期 Date
-        self.age           = orcData.object(forKey: "age") as! Int?//车龄 int
-        self.newPrice           = orcData.object(forKey: "newPrice") as! Int?//新车指导价
+        self.age           = orcData.object(forKey: "age") as! String?//车龄 int
+        self.newPrice           = orcData.object(forKey: "newPrice") as! String?//新车指导价
         self.used           = orcData.object(forKey: "used") as! Int?//过户次数
-        self.miles           = orcData.object(forKey: "miles") as! Int?//里程
+        self.miles           = orcData.object(forKey: "miles") as! String?//里程
         self.repair           = orcData.object(forKey: "repair") as! Int?//维修次数
         self.orderRepair           = orcData.object(forKey: "orderRepair") as! Int?//一般维修次数
         self.sprayRepair           = orcData.object(forKey: "sprayRepair") as! Int?//喷漆维修次数
@@ -204,7 +204,7 @@ class VehicleModel: NSObject {
         self.claimDemage           = orcData.object(forKey: "claimDemage") as! Int?//索赔工作次数
         self.maintain           = orcData.object(forKey: "maintain") as! String?//保养规律与否
         self.maintainTimes           = orcData.object(forKey: "maintainTimes") as! Int?//保养次数
-        self.averageMiles           = orcData.object(forKey: "averageMiles") as! Int?//平均间隔里程
+        self.averageMiles           = orcData.object(forKey: "averageMiles") as! String?//平均间隔里程
         
     }
     
