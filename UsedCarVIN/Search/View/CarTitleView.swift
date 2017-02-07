@@ -23,14 +23,6 @@ class CarTitleView: BaseView {
         label.title = "VIN:"
         return label
     }()
-
-//    lazy var locationLabel:UILabel     = CarTitleView.initLabel(titleLabel:"产地")
-//    lazy var factoryLabel:UILabel      = CarTitleView.initLabel(titleLabel:"厂家")
-//    lazy var bornLabel:UILabel         = CarTitleView.initLabel(titleLabel:"生产")
-//    lazy var carModeLabel:UILabel      = CarTitleView.initLabel(titleLabel:"车型")
-//    lazy var plateLabel:UILabel        = CarTitleView.initLabel(titleLabel:"车牌")
-//    lazy var priceLabel:UILabel        = CarTitleView.initLabel(titleLabel:"指导价格")
-    
     
     lazy var locationLabel:UILabel     = CarTitleView.initLabel(titleLabel:"颜色")
     lazy var factoryLabel:UILabel      = CarTitleView.initLabel(titleLabel:"车系")
@@ -38,16 +30,6 @@ class CarTitleView: BaseView {
     lazy var carModeLabel:UILabel      = CarTitleView.initLabel(titleLabel:"上牌日期")
     lazy var plateLabel:UILabel        = CarTitleView.initLabel(titleLabel:"车牌")
     lazy var priceLabel:UILabel        = CarTitleView.initLabel(titleLabel:"指导价格")
-    
-//    lazy var vinLabel:UILabel          = CarInfoView.initLabel(titleLabel:"VIN")
-//    lazy var locationLabel:UILabel     = CarInfoView.initLabel(titleLabel:"颜色")
-//    lazy var factoryLabel:UILabel      = CarInfoView.initLabel(titleLabel:"车系")
-//    lazy var bornLabel:UILabel         = CarInfoView.initLabel(titleLabel:"车型")
-//    lazy var powerLabel:UILabel        = CarInfoView.initLabel(titleLabel:"车牌")
-//    lazy var fuelLabel:UILabel         = CarInfoView.initLabel(titleLabel:"内饰")
-//    lazy var cylindersLabel:UILabel    = CarInfoView.initLabel(titleLabel:"生产年份")
-//    lazy var carModeLabel:UILabel      = CarInfoView.initLabel(titleLabel:"上牌日期")
-//    lazy var priceLabel:UILabel        = CarInfoView.initLabel(titleLabel:"新车指导价")
     
     class func initLabel(titleLabel:String = "") -> UILabel {
         let label = UILabel()

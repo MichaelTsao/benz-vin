@@ -47,7 +47,7 @@ class CarInfoView: BaseView {
     
     override func commonInit() {
         
-        self.backgroundColor = UIColor.nav_black
+        self.backgroundColor = UIColor.table_new_background
         
         self.addSubview(titleLabel)
         self.addSubview(vinLabel)

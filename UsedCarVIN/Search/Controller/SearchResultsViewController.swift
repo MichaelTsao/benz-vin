@@ -54,6 +54,7 @@ class SearchResultsViewController: BaseViewController {
 
     var model:VehicleModel? = nil{
         willSet{
+            
 //            self.infoView.titleLabel.text         = newValue?.title
 //            self.infoView.vinLabel.value          = newValue?.vin
 //            self.infoView.locationLabel.value     = newValue?.location
@@ -84,36 +85,6 @@ class SearchResultsViewController: BaseViewController {
             }else{
                 self.infoView.priceLabel.value = ""
             }
-            
-//            lazy var locationLabel:UILabel     = CarInfoView.initLabel(titleLabel:"车牌")
-//            lazy var factoryLabel:UILabel      = CarInfoView.initLabel(titleLabel:"车系")
-//            lazy var bornLabel:UILabel         = CarInfoView.initLabel(titleLabel:"车型")
-//            lazy var powerLabel:UILabel        = CarInfoView.initLabel(titleLabel:"颜色")
-//            lazy var fuelLabel:UILabel         = CarInfoView.initLabel(titleLabel:"内饰")
-//            lazy var cylindersLabel:UILabel    = CarInfoView.initLabel(titleLabel:"生产年份")
-//            lazy var carModeLabel:UILabel      = CarInfoView.initLabel(titleLabel:"上牌日期")
-//            lazy var priceLabel:UILabel        = CarInfoView.initLabel(titleLabel:"车龄")
-//            
-//            var vin:String?                //VIN
-//            var :String?                //车牌
-//            var :String?                //车系
-//            var variant:String?                //车型
-//            var colour:String?                //颜色
-//            var trim:String?                //内饰
-//            var prodDate:String?                //生产年份 Date
-//            var regDate:String?                //上牌日期 Date
-//            var age:Int?                //车龄 int
-//            var newPrice:Int?                //新车指导价
-//            var used:Int?                //过户次数
-//            var miles:Int?                //里程
-//            var repair:Int?                //维修次数
-//            var orderRepair:Int?                //一般维修次数
-//            var sprayRepair:Int?                //喷漆维修次数
-//            var sheetMetal:Int?                //钣金维修次数
-//            var claimDemage:Int?                //索赔工作次数
-//            var maintain:String?                //保养规律与否
-//            var maintainTimes:Int?                //保养次数
-//            var averageMiles:Int?                //平均间隔里程
             
             self.daimlerVehicleMode(isDaimler: newValue?.isDaimler ?? false , vin:(newValue?.vin)!)
         }
