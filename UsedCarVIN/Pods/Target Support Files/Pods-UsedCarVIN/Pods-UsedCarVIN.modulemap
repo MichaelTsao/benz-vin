@@ -1,0 +1,6 @@
+framework module Pods_UsedCarVIN {
+  umbrella header "Pods-UsedCarVIN-umbrella.h"
+
+  export *
+  module * { export * }
+}

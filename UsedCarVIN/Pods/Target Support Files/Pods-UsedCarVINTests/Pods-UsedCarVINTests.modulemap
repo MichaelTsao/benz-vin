@@ -1,0 +1,6 @@
+framework module Pods_UsedCarVINTests {
+  umbrella header "Pods-UsedCarVINTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

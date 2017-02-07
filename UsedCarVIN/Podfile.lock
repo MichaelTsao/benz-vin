@@ -1,0 +1,35 @@
+PODS:
+  - CHCSVParser (2.1.0)
+  - Pager (1.1.1)
+  - PureLayout (3.0.2)
+  - SnapKit (3.0.2)
+  - SVProgressHUD (2.1.2)
+  - SwiftyButton (0.5.0):
+    - SwiftyButton/CustomContent (= 0.5.0)
+  - SwiftyButton/CustomContent (0.5.0):
+    - PureLayout (~> 3.0)
+  - UIColor_Hex_Swift (3.0.2)
+  - UMengAnalytics (4.1.8)
+
+DEPENDENCIES:
+  - CHCSVParser (~> 2.1.0)
+  - Pager (~> 1.1.1)
+  - SnapKit (~> 3.0.2)
+  - SVProgressHUD (~> 2.0)
+  - SwiftyButton (~> 0.5.0)
+  - UIColor_Hex_Swift (~> 3.0.2)
+  - UMengAnalytics (~> 4.1.8)
+
+SPEC CHECKSUMS:
+  CHCSVParser: 3bcc7bdb72111a31222e95d57eacceefe4e537e8
+  Pager: 776fec79ffeb21a3b82c40a44b77d3c799308e19
+  PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
+  SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  SwiftyButton: 7f1c7774a0aa721cbb6ea287742198ea0ee50c05
+  UIColor_Hex_Swift: 95f718452092a3efc8a827dffd2c04d3237be02d
+  UMengAnalytics: 6ef66c49bea0779d2ce02a72d862510d97619a7a
+
+PODFILE CHECKSUM: c5750e118d7e48a7b85b6831be23f8f0194267ea
+
+COCOAPODS: 1.1.1
