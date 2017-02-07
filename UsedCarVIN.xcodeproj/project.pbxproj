@@ -13,6 +13,8 @@
 		5C35E2CC1E47063A00773E62 /* XBDownloadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C35E2C81E47063A00773E62 /* XBDownloadTask.swift */; };
 		5C35E2CD1E47063A00773E62 /* XBNetHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C35E2C91E47063A00773E62 /* XBNetHandle.swift */; };
 		5C35E2CE1E47063A00773E62 /* XBNetworkingPublic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C35E2CA1E47063A00773E62 /* XBNetworkingPublic.swift */; };
+		5CBBB4121E49E218008BE38E /* infoRepairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBBB4111E49E218008BE38E /* infoRepairView.swift */; };
+		5CBBB4141E49E23A008BE38E /* infoMaintainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBBB4131E49E23A008BE38E /* infoMaintainView.swift */; };
 		611FC73C1E0B5D7D00636E91 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 611FC73B1E0B5D7D00636E91 /* CoreTelephony.framework */; };
 		611FC73E1E0B5D8700636E91 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 611FC73D1E0B5D8700636E91 /* GLKit.framework */; };
 		611FC7401E0B5DCA00636E91 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 611FC73F1E0B5DCA00636E91 /* QuartzCore.framework */; };
@@ -131,6 +133,8 @@
 		5C35E2C81E47063A00773E62 /* XBDownloadTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBDownloadTask.swift; sourceTree = "<group>"; };
 		5C35E2C91E47063A00773E62 /* XBNetHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBNetHandle.swift; sourceTree = "<group>"; };
 		5C35E2CA1E47063A00773E62 /* XBNetworkingPublic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBNetworkingPublic.swift; sourceTree = "<group>"; };
+		5CBBB4111E49E218008BE38E /* infoRepairView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = infoRepairView.swift; sourceTree = "<group>"; };
+		5CBBB4131E49E23A008BE38E /* infoMaintainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = infoMaintainView.swift; sourceTree = "<group>"; };
 		611FC73B1E0B5D7D00636E91 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		611FC73D1E0B5D8700636E91 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		611FC73F1E0B5DCA00636E91 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -534,6 +538,8 @@
 			isa = PBXGroup;
 			children = (
 				C8F8631E1E08C38400EC35AA /* CarInfoView.swift */,
+				5CBBB4111E49E218008BE38E /* infoRepairView.swift */,
+				5CBBB4131E49E23A008BE38E /* infoMaintainView.swift */,
 				C88870A41E10F19A00FDEEEA /* CarTitleView.swift */,
 				C88870A01E10E21D00FDEEEA /* DetailTableViewCell.swift */,
 				C8F863261E08DB3400EC35AA /* RecordHeaderView.swift */,
@@ -858,6 +864,7 @@
 			files = (
 				A4663C3E1E08C8AE00FCD5E4 /* SubType.m in Sources */,
 				A4663C3C1E08C8AE00FCD5E4 /* ResultTableViewCell.m in Sources */,
+				5CBBB4121E49E218008BE38E /* infoRepairView.swift in Sources */,
 				A4663C3B1E08C8AE00FCD5E4 /* MainType.m in Sources */,
 				C8B759211E0789EA00E448C9 /* SearchViewController.swift in Sources */,
 				C83766F01E0A1040008BFD62 /* Mocks.swift in Sources */,
@@ -884,6 +891,7 @@
 				C8F863291E08DB4500EC35AA /* RecordTableViewCell.swift in Sources */,
 				5C35E2CE1E47063A00773E62 /* XBNetworkingPublic.swift in Sources */,
 				C8F863251E08D8E800EC35AA /* UINavigationBar+EXT.swift in Sources */,
+				5CBBB4141E49E23A008BE38E /* infoMaintainView.swift in Sources */,
 				C8F8631F1E08C38400EC35AA /* CarInfoView.swift in Sources */,
 				A4663C381E08C8AE00FCD5E4 /* ImageTableViewCell.m in Sources */,
 				5C35E2CC1E47063A00773E62 /* XBDownloadTask.swift in Sources */,

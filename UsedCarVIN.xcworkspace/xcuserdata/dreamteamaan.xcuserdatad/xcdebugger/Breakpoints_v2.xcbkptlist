@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UsedCarVIN/Search/Controller/SearchResultsViewController.swift"
-            timestampString = "507996932.593491"
+            timestampString = "508161884.351025"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "daimlerVehicleMode(isDaimler:vin:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UsedCarVIN/Search/Controller/SearchResultsViewController.swift"
-            timestampString = "507996932.593491"
+            timestampString = "508161884.351025"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "daimlerVehicleMode(isDaimler:vin:)"
             landmarkType = "7">
          </BreakpointContent>
