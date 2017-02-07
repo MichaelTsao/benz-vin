@@ -50,10 +50,25 @@ class CarInfoView: BaseView {
     lazy var milesLabelTip:UILabel        = CarInfoView.initLabelTip(titleLabel:"里程")
     lazy var milesLabel:UILabel        = CarInfoView.initLabel(titleLabel:"")
     
+    var bgView:UIView = BGView(frame: CGRect(
+        origin: CGPoint(x: 10, y: 10),
+        size: CGSize(width: 340, height: 220)))
     
+    lazy var normalRepair:UILabel        = CarInfoView.initLabelTip(titleLabel:"一般修理    ")
+    lazy var penqi:UILabel        = CarInfoView.initLabelTip(titleLabel:"喷漆修理    ")
+    lazy var banjin:UILabel        = CarInfoView.initLabelTip(titleLabel:"钣金修理    ")
+    lazy var suopei:UILabel        = CarInfoView.initLabelTip(titleLabel:"索赔工作    ")
 
+    var bgViewTow:UIView = BGView(frame: CGRect(
+        origin: CGPoint(x: 10, y: 10),
+        size: CGSize(width: 340, height: 220)))
+
+    lazy var baoyang:UILabel        = CarInfoView.initLabelTip(titleLabel:"保养次数    ")
+    lazy var licheng:UILabel        = CarInfoView.initLabelTip(titleLabel:"平均间隔历程 ")
     
-    
+    let circle = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
+    let circleTwo = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
+
 //    lazy var vinLabel:UILabel          = CarInfoView.initLabel(titleLabel:"VIN")
 //    lazy var locationLabel:UILabel     = CarInfoView.initLabel(titleLabel:"颜色")
 //    lazy var factoryLabel:UILabel      = CarInfoView.initLabel(titleLabel:"车系")
@@ -116,7 +131,38 @@ class CarInfoView: BaseView {
         self.addSubview(milesLabelTip)
         self.addSubview(milesLabel)
         
+        self.addSubview(bgView)
         
+        // Cricle
+//        circle.center = self.center
+        circle.layer.cornerRadius = 50
+        circle.backgroundColor = UIColor.blue
+        circle.clipsToBounds = true
+        
+        
+        let darkBlur = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurView = UIVisualEffectView(effect: darkBlur)
+        
+        blurView.frame = circle.bounds
+        
+        circle.addSubview(blurView)
+        self.addSubview(circle)
+        
+        self.addSubview(normalRepair)
+        normalRepair.textColor = UIColor.white
+        self.addSubview(penqi)
+        penqi.textColor = UIColor.white
+        self.addSubview(banjin)
+        banjin.textColor = UIColor.white
+        self.addSubview(suopei)
+        suopei.textColor = UIColor.white
+        
+        self.addSubview(bgViewTow)
+        self.addSubview(baoyang)
+        baoyang.textColor = UIColor.white
+        self.addSubview(licheng)
+        licheng.textColor = UIColor.white
+
 //        self.addSubview(vinLabel)
 //        self.addSubview(locationLabel)
 //        self.addSubview(factoryLabel)
@@ -297,6 +343,72 @@ class CarInfoView: BaseView {
                 make.width.equalTo(labelwidth)
             }
             
+            let screenSize = UIScreen.main.bounds
+            let screenWidth = screenSize.width
+            
+            self.bgView.snp.makeConstraints { (make) in
+                make.left.equalTo(10)
+                make.top.equalTo(milesLabel.snp.bottom).offset(vPaddingC)
+                make.height.equalTo(150)
+                make.width.equalTo(screenWidth - 20)
+            }
+            
+            self.circle.snp.makeConstraints { (make) in
+                make.left.equalTo(20)
+                make.top.equalTo(bgView.snp.top).offset(50)
+                make.height.equalTo(30)
+                make.width.equalTo(30)
+            }
+            
+            self.normalRepair.snp.makeConstraints { (make) in
+                make.left.equalTo(150)
+                make.top.equalTo(bgView.snp.top).offset(vPaddingC)
+                make.height.equalTo(labelHeight)
+                make.width.equalTo(labelwidth)
+            }
+ 
+            self.penqi.snp.makeConstraints { (make) in
+                make.left.equalTo(normalRepair)
+                make.top.equalTo(normalRepair.snp.bottom).offset(vPaddingC)
+                make.height.equalTo(labelHeight)
+                make.width.equalTo(labelwidth)
+            }
+            
+            self.banjin.snp.makeConstraints { (make) in
+                make.left.equalTo(normalRepair)
+                make.top.equalTo(penqi.snp.bottom).offset(vPaddingC)
+                make.height.equalTo(labelHeight)
+                make.width.equalTo(labelwidth)
+            }
+            
+            self.suopei.snp.makeConstraints { (make) in
+                make.left.equalTo(normalRepair)
+                make.top.equalTo(banjin.snp.bottom).offset(vPaddingC)
+                make.height.equalTo(labelHeight)
+                make.width.equalTo(labelwidth)
+            }
+
+            self.bgViewTow.snp.makeConstraints { (make) in
+                make.left.equalTo(10)
+                make.top.equalTo(bgView.snp.bottom).offset(vPaddingC)
+                make.height.equalTo(100)
+                make.width.equalTo(screenWidth - 20)
+            }
+            
+            self.baoyang.snp.makeConstraints { (make) in
+                make.left.equalTo(normalRepair)
+                make.top.equalTo(bgViewTow.snp.top).offset(vPaddingC)
+                make.height.equalTo(labelHeight)
+                make.width.equalTo(labelwidth)
+            }
+            
+            self.licheng.snp.makeConstraints { (make) in
+                make.left.equalTo(normalRepair)
+                make.top.equalTo(baoyang.snp.bottom).offset(vPaddingC)
+                make.height.equalTo(labelHeight)
+                make.width.equalTo(labelwidth + CGFloat(50))
+            }
+
             /*
             self.vinLabel.snp.makeConstraints { (make) in
                 make.left.equalTo(titleLabel)

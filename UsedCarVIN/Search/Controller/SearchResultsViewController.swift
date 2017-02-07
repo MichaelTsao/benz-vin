@@ -66,6 +66,13 @@ class SearchResultsViewController: BaseViewController {
             self.infoView.usedLabel.value = newValue?.used
             self.infoView.ageLabel.value = newValue?.age
             self.infoView.milesLabel.value = newValue?.miles
+            self.infoView.normalRepair.value = (newValue?.orderRepair)!+"次"
+            self.infoView.penqi.value = (newValue?.sprayRepair)!+"次"
+            self.infoView.banjin.value = (newValue?.sheetMetal)!+"次"
+            self.infoView.suopei.value = (newValue?.claimDemage)!+"次"
+            self.infoView.baoyang.value = (newValue?.maintainTimes)!+"次"
+            self.infoView.licheng.value = (newValue?.averageMiles)!+"公里"
+
             self.daimlerVehicleMode(isDaimler: newValue?.isDaimler ?? false , vin:(newValue?.vin)!)
         }
     }
@@ -81,8 +88,9 @@ class SearchResultsViewController: BaseViewController {
     }
     
     func showDetail() {
-        let detailVC = VehicleDetailViewController()
-        detailVC.model = self.model
+//        let detailVC = VehicleDetailViewController()
+        let detailVC = ReportsViewController()
+//        detailVC.model = self.model
         self.navigationController?.pushViewController(detailVC, animated: true)
 
         UMEventsManager.Events.showVehicleAllDetail.count()
