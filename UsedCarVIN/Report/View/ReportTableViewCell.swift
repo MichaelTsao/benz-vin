@@ -85,13 +85,13 @@ class ReportTableViewCell: BaseTableViewCell,UITableViewCellHeightProtocol {
         return label
     }()
 
-    let sanLabel:UILabel = {
-
-        let label = UILabel()
-        label.textColor     = UIColor.white
-        label.font          = UIFont.systemFont(ofSize: 18)
-        return label
-    }()
+//    let sanLabel:UILabel = {
+//
+//        let label = UILabel()
+//        label.textColor     = UIColor.white
+//        label.font          = UIFont.systemFont(ofSize: 18)
+//        return label
+//    }()
 
     override func commonInit() {
         self.backgroundColor = UIColor(red: 47/255, green: 47/255, blue: 47/255, alpha: 1.00)
@@ -104,8 +104,20 @@ class ReportTableViewCell: BaseTableViewCell,UITableViewCellHeightProtocol {
             size: CGSize(width: screenWidth - 20, height: ReportTableViewCell.cellHeight() - 20)))
         self.contentView.addSubview(bgView)
 
-        self.sanLabel.title = "操作人员:"
+//        self.sanLabel.title = "操作人员:"
 
+        
+        
+        let typeNameTitleLabel:UILabel = {
+            let label = UILabel()
+            label.textColor     = UIColor.circular_label_text_color
+            label.font          = UIFont.systemFont(ofSize: 20)
+            label.textAlignment = .left
+            return label
+        }()
+        
+        typeNameTitleLabel.text = "维";
+        
         let typeNameLabel:UILabel = {
             
             let label = UILabel()
@@ -126,6 +138,9 @@ class ReportTableViewCell: BaseTableViewCell,UITableViewCellHeightProtocol {
         }()
         descNameLabel.text = "维修说明:";
         
+        
+        
+        bgView.addSubview(typeNameTitleLabel)
         bgView.addSubview(typeNameLabel)
         bgView.addSubview(descNameLabel)
         bgView.addSubview(descLabel)
@@ -133,7 +148,7 @@ class ReportTableViewCell: BaseTableViewCell,UITableViewCellHeightProtocol {
         bgView.addSubview(dateLabel)
         bgView.addSubview(mileLabel)
 //        bgView.addSubview(contentLabel)
-        bgView.addSubview(sanLabel)
+//        bgView.addSubview(sanLabel)
 
 //        bgView.snp.makeConstraints { (make) in
 //            make.size.equalTo(bgView.image!.size)
@@ -144,6 +159,15 @@ class ReportTableViewCell: BaseTableViewCell,UITableViewCellHeightProtocol {
         let labelHeight:CGFloat = 20
 
         let topPadding:CGFloat = 8
+        
+        
+        
+        typeNameTitleLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(bgView).offset(0)
+            make.top.equalTo(bgView).offset(0)
+            make.width.equalTo(40)
+            make.height.equalTo(40)
+        }
         
         typeNameLabel.snp.makeConstraints { (make) in
             make.left.equalTo(bgView).offset(padding)
@@ -159,10 +183,10 @@ class ReportTableViewCell: BaseTableViewCell,UITableViewCellHeightProtocol {
             make.height.equalTo(labelHeight)
         }
         
-        let line:CGFloat = 5;
+        let line:CGFloat = 7;
         descNameLabel.snp.makeConstraints { (make) in
             make.left.equalTo(bgView).offset(padding)
-            make.top.equalTo(bgView).offset(ReportTableViewCell.cellHeight() - padding - labelHeight * line - CGFloat(20.0))
+            make.top.equalTo(bgView).offset(ReportTableViewCell.cellHeight() - padding - labelHeight * line - CGFloat(40.0))
             make.width.equalTo(bgView).multipliedBy(0.8)
             make.height.equalTo(labelHeight)
         }
@@ -195,11 +219,11 @@ class ReportTableViewCell: BaseTableViewCell,UITableViewCellHeightProtocol {
 //            make.width.equalTo(bgView).multipliedBy(0.8)
 //        }
 
-        sanLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(bgView).offset(padding)
-            make.top.equalTo(bgView).offset(100)
-            make.width.equalTo(bgView).multipliedBy(0.7)
-        }
+//        sanLabel.snp.makeConstraints { (make) in
+//            make.left.equalTo(bgView).offset(padding)
+//            make.top.equalTo(bgView).offset(100)
+//            make.width.equalTo(bgView).multipliedBy(0.7)
+//        }
     }
 
     static func cellHeight() -> CGFloat {

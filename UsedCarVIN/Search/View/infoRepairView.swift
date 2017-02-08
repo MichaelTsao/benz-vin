@@ -10,12 +10,7 @@ import UIKit
 
 class infoRepairView: BaseView {
     
-    
-    
-    
-    
     //42	47	54
-    
     let blackTipView:UIView = {
         var view  = UIView()
         view = .color(with: .black)
@@ -55,7 +50,6 @@ class infoRepairView: BaseView {
     lazy var productDateLabelTip:UILabel        = infoRepairView.initLabelTip(titleLabel:"")
     lazy var productDateLabel:UILabel        = infoRepairView.initLabel(titleLabel:"")
     
-    
     class func initLabelTip(titleLabel:String = "") -> UILabel {
         let label = UILabel()
         label.title = titleLabel
@@ -71,7 +65,6 @@ class infoRepairView: BaseView {
         label.font = UIFont.systemFont(ofSize: 20)
         return label
     }
-    
     
     override func commonInit() {
         
@@ -93,9 +86,7 @@ class infoRepairView: BaseView {
         self.addSubview(productDateLabelTip)
         self.addSubview(productDateLabel)
         
-        
         titleLabel.textAlignment = .center
-        
         
         super.commonInit()
     }
@@ -112,7 +103,6 @@ class infoRepairView: BaseView {
             let labelTipHeight:CGFloat = 20
             let labelHeight:CGFloat = 20
             let labelwidth:CGFloat = 160
-
             
             self.blackTipView.snp.makeConstraints { (make) in
                 make.top.equalTo(0)
@@ -121,14 +111,12 @@ class infoRepairView: BaseView {
                 make.height.equalTo(10)
             }
             
-            
             self.titleLabel.snp.makeConstraints { (make) in
                 make.left.equalTo(superview).offset(leftPadding)
                 make.top.equalTo(superview).offset(vPaddingA)
                 make.right.equalTo(superview).offset(-leftPadding)
                 make.height.equalTo(leftPadding)
             }
-            
             
             self.carModelsLabelTip.snp.makeConstraints { (make) in
                 make.left.equalTo(superview).offset(leftPadding)
@@ -160,8 +148,6 @@ class infoRepairView: BaseView {
                 make.width.equalTo(labelwidth)
             }
             
-            
-            
             // 上牌日期，生产年份
             self.registrationDateLabelTip.snp.makeConstraints { (make) in
                 make.left.equalTo(superview).offset(leftPadding)
@@ -178,7 +164,6 @@ class infoRepairView: BaseView {
                 make.width.equalTo(labelwidth)
             }
             
-            
             self.productDateLabelTip.snp.makeConstraints { (make) in
                 make.left.equalTo(registrationDateLabelTip.snp.right).offset(leftPadding)
                 make.top.equalTo(registrationDateLabelTip)
@@ -193,8 +178,6 @@ class infoRepairView: BaseView {
                 make.height.equalTo(labelHeight)
                 make.width.equalTo(labelwidth)
             }
-            
-            
             
             didSetupConstraints = true
         }

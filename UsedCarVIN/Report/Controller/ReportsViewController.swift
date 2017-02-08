@@ -10,9 +10,7 @@ import UIKit
 
 class ReportsViewController: BaseViewController {
     
-    
     var dataArray:[MaintenanceModel] = []
-    
     let tableView:UITableView = {
         let tableView = UITableView(frame: CGRect.zero, style: .plain)
         tableView.separatorStyle = .none
@@ -20,17 +18,22 @@ class ReportsViewController: BaseViewController {
         return tableView
     }()
     
+    override func setRightBarNavigationItem() {
+        guard let barButtonItem   = UIBarButtonItem.whiteBackButton(),
+            let button:UIButton = barButtonItem.customView as? UIButton else {
+                return
+        }
+        self.navigationItem.leftBarButtonItem = barButtonItem
+        button.addTarget(self, action: #selector(backAction(sender:)), for: .touchUpInside)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = "维护记录"
-        self.view.backgroundColor = UIColor.table_background
-        
+        self.title = "维保记录"
+        self.view.backgroundColor = UIColor.white
         let vin = "4JG1641861A355196";
         let path = "http://120.77.66.101:8888/Vehicle/History?VIN=\(vin)"
-        
         print("path->:"+path);
-        
         XBNetHandle.getRequestWithUrlStr(urlStr: path, successBlock: { (result) in
             let str = String(data:result!, encoding:String.Encoding.utf8)
             print("Json Str:");
@@ -52,7 +55,6 @@ class ReportsViewController: BaseViewController {
                 print(dataDic ?? "")
                 
                 //                dataArray = []
-                
                 self.tableView.isHidden = false
                 
                 //                let names = ["hell0","world","let's","start"]
@@ -91,9 +93,7 @@ class ReportsViewController: BaseViewController {
                 }
                 
                 self.tableView.isHidden = false
-                
                 self.tableView.reloadData()
-                
                 
             }else{
                 if let number = json?["message"] as? String {
@@ -125,40 +125,32 @@ class ReportsViewController: BaseViewController {
     override func commonInit() {
         self.tableView.delegate   = self
         self.tableView.dataSource = self
-        
         self.view.addSubview(tableView)
         self.view.setNeedsUpdateConstraints()
     }
     
     override func updateViewConstraints() {
+        super.updateViewConstraints()
         if (!didSetupConstraints) {
-            
             tableView.snp.makeConstraints({ (make) in
                 make.edges.equalTo(self.view)
             })
-            
             didSetupConstraints = true
         }
-        
-        super.updateViewConstraints()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 }
 
 extension ReportsViewController:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return self.dataArray.count
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         return ReportTableViewCell.cellHeight()
     }
     
@@ -177,7 +169,7 @@ extension ReportsViewController:UITableViewDelegate,UITableViewDataSource {
         cell!.dateLabel.text    = vehicle.maintainDate
         cell!.mileLabel.text    = vehicle.miles
 //        cell!.contentLabel.text = vehicle.regNo
-        cell!.sanLabel.value    = vehicle.sanName
+//        cell!.sanLabel.value    = vehicle.sanName
         cell!.typeLabel.text = vehicle.details
         
         return cell!
@@ -190,3 +182,5 @@ extension ReportsViewController:UITableViewDelegate,UITableViewDataSource {
 //        self.navigationController?.pushViewController(resultsViewController, animated: true)
     }
 }
+
+

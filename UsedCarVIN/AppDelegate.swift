@@ -51,7 +51,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func getRootViewController() -> UIViewController {
 
-        return SplashPageViewController()
+//        return SearchViewController()
+        let nav_search = UINavigationController(rootViewController: SearchViewController())
+        return nav_search;
+//        return SplashPageViewController()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

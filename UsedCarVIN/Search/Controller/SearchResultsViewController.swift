@@ -57,32 +57,34 @@ class SearchResultsViewController: BaseViewController {
     var model:VehicleModel? = nil{
         willSet{
             
+            self.infoView.carModelsTitleLabel.text = newValue?.title
             self.infoView.titleLabel.text         = newValue?.regNo
-            self.infoView.carModelsLabel.text         = newValue?.model
-            self.infoView.priceLabel.value = newValue?.newPrice
+            self.infoView.ProductLabel.text         = newValue?.prodDate
+            self.infoView.productAreaLabel.value = "德国"
             self.infoView.registrationDateLabel.value = newValue?.regDate
-            self.infoView.productDateLabel.value = newValue?.prodDate
-            self.infoView.warrantyPeriodLabel.value = "是"
-            self.infoView.usedLabel.value = newValue?.used
+            self.infoView.usedCarLabel.value = (newValue?.used)!+"次"
+            self.infoView.priceNewCarLabel.value = newValue?.newPrice
+            self.infoView.priceNowLabel.value = "1000test"//newValue?.averagePrice
             self.infoView.ageLabel.value = newValue?.age
             self.infoView.milesLabel.value = newValue?.miles
             self.infoView.normalRepair.value = (newValue?.orderRepair)!+"次"
             self.infoView.penqi.value = (newValue?.sprayRepair)!+"次"
             self.infoView.banjin.value = (newValue?.sheetMetal)!+"次"
             self.infoView.suopei.value = (newValue?.claimDemage)!+"次"
-            self.infoView.baoyang.value = (newValue?.maintainTimes)!+"次"
+            self.infoView.baoyang.value = "test"//newValue?.maintainDate
             self.infoView.licheng.value = (newValue?.averageMiles)!+"公里"
-
+            
+            self.infoView.circle.value = (newValue?.repair)!+"次\n维修"
+            self.infoView.circleTwo.value = (newValue?.maintainTimes)!+"次\n保养"
+            
             self.daimlerVehicleMode(isDaimler: newValue?.isDaimler ?? false , vin:(newValue?.vin)!)
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.title = "车辆信息"
-
-        self.isHiddenTabbar            = true
+//        self.isHiddenTabbar            = true
         self.view.backgroundColor      = UIColor.table_background
 //        self.detailButton.addTarget(self, action: #selector(showDetail), for: .touchUpInside)
     }
@@ -92,8 +94,7 @@ class SearchResultsViewController: BaseViewController {
         let detailVC = ReportsViewController()
 //        detailVC.model = self.model
         self.navigationController?.pushViewController(detailVC, animated: true)
-
-        UMEventsManager.Events.showVehicleAllDetail.count()
+//        UMEventsManager.Events.showVehicleAllDetail.count()
     }
 
 //    func takePicture(){

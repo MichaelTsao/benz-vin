@@ -40,6 +40,9 @@ class SplashPageViewController: BaseViewController {
     }
 
     override func backAction(sender: AnyObject) {
+        
+        
+        
         let tabbarVC = UITabBarController()
 
         //SearchViewController
@@ -50,14 +53,14 @@ class SplashPageViewController: BaseViewController {
         nav_search.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.black], for: .selected)
 
         //ReportsViewController
-        let nav_report = UINavigationController(rootViewController: ReportsViewController())
-        nav_report.tabBarItem.title = "我的报告"
-        nav_report.tabBarItem.image = UIImage(named: "icon_report_normal")
-        nav_report.tabBarItem.selectedImage = UIImage(named: "icon_report_pressed")?.withRenderingMode(.alwaysOriginal)
-        nav_report.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.black], for: .selected)
+//        let nav_report = UINavigationController(rootViewController: ReportsViewController())
+//        nav_report.tabBarItem.title = "我的报告"
+//        nav_report.tabBarItem.image = UIImage(named: "icon_report_normal")
+//        nav_report.tabBarItem.selectedImage = UIImage(named: "icon_report_pressed")?.withRenderingMode(.alwaysOriginal)
+//        nav_report.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.black], for: .selected)
 
         //Set
-        tabbarVC.setViewControllers([nav_search,nav_report], animated: true)
+//        tabbarVC.setViewControllers([nav_search,nav_report], animated: true)
         tabbarVC.delegate = self
 
         let transition = CATransition()
@@ -66,7 +69,10 @@ class SplashPageViewController: BaseViewController {
         transition.subtype = kCATransitionFromRight
         view.window!.layer.add(transition, forKey: kCATransition)
 
-        view.window?.rootViewController  = tabbarVC
+//        view.window?.rootViewController  = tabbarVC
+        
+//        view.window?.rootViewController  = nav_search
+        
         view.window?.makeKeyAndVisible()
     }
 

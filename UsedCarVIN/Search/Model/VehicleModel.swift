@@ -53,6 +53,8 @@ class VehicleModel: NSObject {
     var regDate:String?                //上牌日期 Date
     var age:String?                //车龄 int
     var newPrice:String?                //新车指导价
+    var averagePrice:String?                //均价
+    
     var used:String?                //过户次数
     var miles:String?                //里程
     var repair:String?                //维修次数
@@ -63,6 +65,8 @@ class VehicleModel: NSObject {
     var maintain:String?                //保养规律与否
     var maintainTimes:String?                //保养次数
     var averageMiles:String?                //平均间隔里程
+    
+    var maintainDate:String?                //最后保养日期 ？
     
 //    "regNo":"京NXX651",
 //    "model":"M-CLASS",
