@@ -9,44 +9,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "UsedCarVIN/Search/Controller/SearchVINViewController.swift"
-            timestampString = "507983220.859891"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "searchDeatil(vinCode:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "UsedCarVIN/Search/Controller/SearchVINViewController.swift"
-            timestampString = "507983220.859891"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "searchDeatil(vinCode:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "UsedCarVIN/Search/Controller/SearchResultsViewController.swift"
-            timestampString = "508234282.335533"
+            timestampString = "508242823.509433"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
             landmarkName = "daimlerVehicleMode(isDaimler:vin:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UsedCarVIN/Search/Controller/SearchResultsViewController.swift"
-            timestampString = "508234282.335533"
+            timestampString = "508242823.509433"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
             landmarkName = "daimlerVehicleMode(isDaimler:vin:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -80,22 +48,6 @@
             startingLineNumber = "126"
             endingLineNumber = "126"
             landmarkName = "searchedResult(model:searchViewController:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "UsedCarVIN/Search/Controller/SearchVINViewController.swift"
-            timestampString = "508226342.962626"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "searchDeatil(vinCode:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

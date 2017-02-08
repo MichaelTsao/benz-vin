@@ -37,15 +37,13 @@ class SearchVINViewController: SearchContentViewController {
         NSLog("init VehicleModel")
         
         DispatchQueue.global(qos: .default).async {
+            NSLog("set vinCode %@",vinCode)
 
             //先把本地信息覆盖一遍
             superview.vinSharedManager.searchVINInfo(vinCode) { dict in
                 NSLog("init VinSharedManager")
 
                 if let data = dict as? [String:String] {
-                    //生成模型 跳转到详情页面
-//                    let vehicle = VehicleModel()
-//                    NSLog("init VehicleModel")
 
                     vehicle.parse(with: data)
                     NSLog("parse vehicle")
@@ -53,12 +51,6 @@ class SearchVINViewController: SearchContentViewController {
                     //需要放在parse下面，不然会数据会被覆盖
                     vehicle.vin = superview.inputTextField.text
                     NSLog("set vin")
-
-//                    DispatchQueue.main.async {
-//                        NSLog("show result")
-//                        HUD.hideWaiting()
-//                        superview.delegate?.searchedResult(model: vehicle, searchViewController: superview)
-//                    }
                 }
             }
             

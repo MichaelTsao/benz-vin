@@ -32,37 +32,7 @@ class VehicleDetailViewController: BaseViewController {
                 self.titleView.titleLabel.text     = value.title
                 self.titleView.vinLabel.value      = value.vin
                 
-//                self.titleView.locationLabel.value = value.location
-//                self.titleView.factoryLabel.value  = value.factory
-//                self.titleView.bornLabel.value     = value.bornYear
-//                self.titleView.carModeLabel.value  = value.carMode
-//                self.titleView.plateLabel.value    = value.licensePlate
-//                self.titleView.priceLabel.value    =  value.price
-                
-                
-                
-//                self.infoView.titleLabel.text         = newValue?.title
-//                self.infoView.vinLabel.value          = newValue?.vin
-//                self.infoView.locationLabel.value     = newValue?.colour
-//                self.infoView.factoryLabel.value      = newValue?.model
-//                self.infoView.bornLabel.value         = newValue?.variant
-//                self.infoView.powerLabel.value        = newValue?.regNo
-//                self.infoView.fuelLabel.value         = newValue?.trim
-//                self.infoView.cylindersLabel.value    = newValue?.prodDate
-//                self.infoView.carModeLabel.value      = newValue?.regDate
-//                
-//                //            let number :Int = (newValue?.newPrice)!
-//                //
-//                //            self.infoView.priceLabel.value        = String(describing: number)
-//                
-//                if let number = newValue?.newPrice { // 建议的做法
-//                    self.infoView.priceLabel.value = String(describing:number)
-//                }else{
-//                    self.infoView.priceLabel.value = ""
-//                }
-//                
-                
-                self.titleView.locationLabel.value = value.colour
+                self.titleView.locationLabel.value = value.location
                 self.titleView.factoryLabel.value  = value.model
                 self.titleView.bornLabel.value     = value.variant
                 self.titleView.carModeLabel.value  = value.regDate
@@ -75,9 +45,7 @@ class VehicleDetailViewController: BaseViewController {
                     self.titleView.priceLabel.value = ""
                 }
                 
-                
 //                self.setDetailValue(key: "车型", value: "",isSection: true)
-
 //                self.setDetailValue(key: "车型代码", value: value.code)
 //                self.setDetailValue(key: "上市年份", value: value.releaseYear)
 //                self.setDetailValue(key: "停产年份", value: value.stopYear)

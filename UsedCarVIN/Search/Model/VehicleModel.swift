@@ -10,6 +10,7 @@ import UIKit
 
 class VehicleModel: NSObject {
     
+    var title:String?                //车title
     var location:String?                //产地
     var bornYear:String?                //生产年份
     var factory:String?                 //厂家名称
@@ -54,7 +55,6 @@ class VehicleModel: NSObject {
     var age:String?                //车龄 int
     var newPrice:String?                //新车指导价
     var averagePrice:String?                //均价
-    
     var used:String?                //过户次数
     var miles:String?                //里程
     var repair:String?                //维修次数
@@ -65,29 +65,9 @@ class VehicleModel: NSObject {
     var maintain:String?                //保养规律与否
     var maintainTimes:String?                //保养次数
     var averageMiles:String?                //平均间隔里程
-    
     var maintainDate:String?                //最后保养日期 ？
     
-//    "regNo":"京NXX651",
-//    "model":"M-CLASS",
-//    "variant":"GenericVariant",
-//    "colour":"曜岩黑",
-//    "trim":"栗木褐色真皮",
-//    "prodDate":"2008-04-14",
-//    "age":9,
-//    "newPrice":5200000,
-//    "used":1,
-//    "miles":67662,
-//    "repair":9,
-//    "orderRepair":4,
-//    "sprayRepair":0,
-//    "sheetMetal":0,
-//    "claimDemage":0,
-//    "maintain":"否",
-//    "maintainTimes":5,
-//    "averageMiles":12000,
-//    "regDate":"2008-04-14",
-//    "vin":"4JG1641861A355196"
+
     
 //    var vin:String? = nil {             //VIN
 //        willSet{
@@ -127,33 +107,11 @@ class VehicleModel: NSObject {
     var detail:String?                  // Daimler 详情数据
     var isDaimler:Bool = false          // 是否属于Daimler数据
 
-    var title:String {
-        get{
-            return (brand ?? "") + " " + (name ?? "")
-        }
-    }
-    
-    /*
-     self.regNo           = orcData.object(forKey: "regNo") as! String?//车牌
-     self.model           = orcData.object(forKey: "model") as! String?//车系
-     self.variant           = orcData.object(forKey: "variant") as! String?//车型
-     self.colour           = orcData.object(forKey: "colour") as! String?//颜色
-     self.trim           = orcData.object(forKey: "trim") as! String?//内饰
-     self.prodDate      = orcData.object(forKey: "prodDate") as! String?//生产年份 Date
-     self.regDate           = orcData.object(forKey: "regDate") as! String?//上牌日期 Date
-     self.age           = orcData.object(forKey: "age") as! Int?//车龄 int
-     self.newPrice           = orcData.object(forKey: "newPrice") as! Int?//新车指导价
-     self.used           = orcData.object(forKey: "used") as! Int?//过户次数
-     self.miles           = orcData.object(forKey: "miles") as! Int?//里程
-     self.repair           = orcData.object(forKey: "repair") as! Int?//维修次数
-     self.orderRepair           = orcData.object(forKey: "orderRepair") as! Int?//一般维修次数
-     self.sprayRepair           = orcData.object(forKey: "sprayRepair") as! Int?//喷漆维修次数
-     self.sheetMetal           = orcData.object(forKey: "sheetMetal") as! Int?//钣金维修次数
-     self.claimDemage           = orcData.object(forKey: "claimDemage") as! Int?//索赔工作次数
-     self.maintain           = orcData.object(forKey: "maintain") as! String?//保养规律与否
-     self.maintainTimes           = orcData.object(forKey: "maintainTimes") as! Int?//保养次数
-     self.averageMiles           = orcData.object(forKey: "averageMiles") as! Int?//平均间隔里程
-     */
+//    var title:String {
+//        get{
+//            return (brand ?? "") + " " + (name ?? "")
+//        }
+//    }
     
     func parse(with orcData:[String:String]) {
 
@@ -185,10 +143,10 @@ class VehicleModel: NSObject {
         self.fuelNo             = orcData["燃油标号"]
         self.cylinderCount      = orcData["发动机缸数"]
         self.driveMode          = orcData["驱动方式"]
+        self.title = (brand ?? "") + " " + (name ?? "")
     }
     
     func parseJson(orcData:NSDictionary) {
-        
         self.vin           = orcData.object(forKey: "vin") as! String?
         self.regNo           = orcData.object(forKey: "regNo") as! String?//车牌
         self.model           = orcData.object(forKey: "model") as! String?//车系
@@ -199,6 +157,7 @@ class VehicleModel: NSObject {
         self.regDate           = orcData.object(forKey: "regDate") as! String?//上牌日期 Date
         self.age           = orcData.object(forKey: "age") as! String?//车龄 int
         self.newPrice           = orcData.object(forKey: "newPrice") as! String?//新车指导价
+        self.averagePrice           = orcData.object(forKey: "averagePrice") as! String?//均价
         self.used           = orcData.object(forKey: "used") as! String?//过户次数
         self.miles           = orcData.object(forKey: "miles") as! String?//里程
         self.repair           = orcData.object(forKey: "repair") as! String?//维修次数
@@ -209,7 +168,7 @@ class VehicleModel: NSObject {
         self.maintain           = orcData.object(forKey: "maintain") as! String?//保养规律与否
         self.maintainTimes           = orcData.object(forKey: "maintainTimes") as! String?//保养次数
         self.averageMiles           = orcData.object(forKey: "averageMiles") as! String?//平均间隔里程
-        
+        self.maintainDate           = orcData.object(forKey: "maintainDate") as! String?//最后维保日期
     }
     
 }

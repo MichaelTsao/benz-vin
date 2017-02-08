@@ -57,21 +57,34 @@ class SearchResultsViewController: BaseViewController {
     var model:VehicleModel? = nil{
         willSet{
             
-            self.infoView.carModelsTitleLabel.text = newValue?.title
+//            self.infoView.carModelsTitleLabel.text = newValue?.title
+            
+            if newValue?.title == nil {
+                self.infoView.carModelsTitleLabel.text = newValue?.variant
+            }else{
+                self.infoView.carModelsTitleLabel.text = newValue?.title
+            }
+            
             self.infoView.titleLabel.text         = newValue?.regNo
             self.infoView.ProductLabel.text         = newValue?.prodDate
-            self.infoView.productAreaLabel.value = "德国"
+            
+            if newValue?.location == nil {
+                self.infoView.productAreaLabel.value = "未知"
+            }else{
+                self.infoView.productAreaLabel.value = newValue?.location
+            }
+            
             self.infoView.registrationDateLabel.value = newValue?.regDate
             self.infoView.usedCarLabel.value = (newValue?.used)!+"次"
             self.infoView.priceNewCarLabel.value = newValue?.newPrice
-            self.infoView.priceNowLabel.value = "1000test"//newValue?.averagePrice
+            self.infoView.priceNowLabel.value = newValue?.averagePrice
             self.infoView.ageLabel.value = newValue?.age
             self.infoView.milesLabel.value = newValue?.miles
             self.infoView.normalRepair.value = (newValue?.orderRepair)!+"次"
             self.infoView.penqi.value = (newValue?.sprayRepair)!+"次"
             self.infoView.banjin.value = (newValue?.sheetMetal)!+"次"
             self.infoView.suopei.value = (newValue?.claimDemage)!+"次"
-            self.infoView.baoyang.value = "test"//newValue?.maintainDate
+            self.infoView.baoyang.value = newValue?.maintainDate
             self.infoView.licheng.value = (newValue?.averageMiles)!+"公里"
             
             self.infoView.circle.value = (newValue?.repair)!+"次\n维修"

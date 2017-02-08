@@ -189,24 +189,9 @@ class CarInfoView: BaseView {
         baoyang.textColor = UIColor.white
         self.addSubview(licheng)
         licheng.textColor = UIColor.white
-
-//        self.addSubview(vinLabel)
-//        self.addSubview(locationLabel)
-//        self.addSubview(factoryLabel)
-//        self.addSubview(bornLabel)
-//        self.addSubview(powerLabel)
-//        self.addSubview(fuelLabel)
-//        self.addSubview(cylindersLabel)
-//        self.addSubview(carModeLabel)
         
         titleLabel.textAlignment = .center
-        
-//        self.productAreaLabel.backgroundColor     = UIColor.white
-//        self.productAreaLabel.textColor           = UIColor.black
-//        self.productAreaLabel.layer.cornerRadius  = 4
-//        self.productAreaLabel.layer.masksToBounds = true
-//        self.productAreaLabel.textAlignment       = .center
-//        self.productAreaLabel.adjustsFontSizeToFitWidth = true
+
 
         super.commonInit()
     }
@@ -223,8 +208,6 @@ class CarInfoView: BaseView {
             let labelTipHeight:CGFloat = 20
             let labelHeight:CGFloat = 20
             let labelwidth:CGFloat = 160
-
-            
             
             self.titleLabel.snp.makeConstraints { (make) in
                 make.left.equalTo(superview).offset(leftPadding)
@@ -232,17 +215,6 @@ class CarInfoView: BaseView {
                 make.right.equalTo(superview).offset(-leftPadding)
                 make.height.equalTo(leftPadding)
             }
-            
-//            let whiteView = UIView.color(with: .white)
-//            self.addSubview(whiteView)
-//
-//            whiteView.snp.makeConstraints { (make) in
-//                make.width.equalTo(2)
-//                make.height.equalTo(20)
-//                make.centerY.equalTo(titleLabel)
-//                make.left.equalTo(superview).offset(leftPadding/2-1)
-//            }
-            
             
             self.carModelsTitleLabel.snp.makeConstraints { (make) in
                 make.left.equalTo(superview).offset(leftPadding)

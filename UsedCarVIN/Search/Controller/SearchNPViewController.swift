@@ -10,6 +10,9 @@ import UIKit
 
 class SearchNPViewController: SearchContentViewController {
 
+    var vinSharedManager = VINSharedManager.sharedInstance()!
+
+    
     let provinces:[String] = {
         return ["京","津","沪","闽","冀","豫",
                 "云","辽","黑","湘","皖","鲁",
@@ -85,15 +88,9 @@ class SearchNPViewController: SearchContentViewController {
         //赋值給vehicle 用delegate传递出去
         //将会显示详情页面-SearchResultsViewController
         
-//        let path = "http://120.77.66.101:8888/Vehicle?regNo=\(licensePlate)"//
 //        let path = "http://120.77.66.101:8888/Vehicle?regNo=京NXX651".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!//4JG1641861A355196
-//        
         
-      let path = "http://120.77.66.101:8888/Vehicle?regNo=\(licensePlate)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!//4JG1641861A355196
-        
-//        let path = URL(string: path1.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
-//        [aString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        
+      let path = "http://120.77.66.101:8888/Vehicle?regNo=\(licensePlate)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         
         print("path->:"+path);
 
@@ -128,7 +125,7 @@ class SearchNPViewController: SearchContentViewController {
                 NSLog("parse vehicle")
                 
 //                //需要放在parse下面，不然会数据会被覆盖
-//                vehicle.vin = superview.inputTextField.text
+//                vehicle.vin =
 //                NSLog("set vin")
 //                
 //                DispatchQueue.main.async {
@@ -136,23 +133,26 @@ class SearchNPViewController: SearchContentViewController {
 //                    HUD.hideWaiting()
 //                    superview.delegate?.searchedResult(model: vehicle, searchViewController: superview)
 //                }
-//                
-                HUD.hideWaiting()
+                
+                //查询完号牌之后，根据vin覆盖一次
+                self.vinSharedManager.searchVINInfo(vehicle.vin) { dict in
+                    NSLog("init VinSharedManager")
+                    
+                    if let data = dict as? [String:String] {
+                        vehicle.parse(with: data)
+                        NSLog("parse vehicle")
+                        
+                        HUD.hideWaiting()
+                        self.delegate?.searchedResult(model: vehicle, searchViewController: self)
 
-                self.delegate?.searchedResult(model: vehicle, searchViewController: self)
-
-                
-                
-                //                    if let data =
-                
-                
+                    }
+                }
                 
             }else{
                 if let number = json?["message"] as? String {
                     print(number)
                     HUD.showErrorMsg(message: number)
                 }
-                
             }
             //                HUD.hideWaiting()
         }) { (Error) in
@@ -161,26 +161,8 @@ class SearchNPViewController: SearchContentViewController {
             //                HUD.hideWaiting()
             HUD.showErrorMsg(message: "请求服务器出错")
         }
-
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-//        self.delegate?.searchedResult(model: vehicle, searchViewController: self)
     }
-
-    
-    
-    
-    
     
     func showPicker() {
         let alertController = UIAlertController(title: "选择车辆归属地", message: nil, preferredStyle: .actionSheet)
@@ -245,7 +227,6 @@ class SearchNPViewController: SearchContentViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 

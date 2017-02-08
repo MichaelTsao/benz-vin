@@ -41,6 +41,18 @@ class ReportTableViewCell: BaseTableViewCell,UITableViewCellHeightProtocol {
         origin: CGPoint(x: 10, y: 10),
         size: CGSize(width: 340, height: 220)))
     
+    
+    
+    
+    let typeNameTitleLabel:UILabel = {
+        let label = UILabel()
+        label.textColor     = UIColor.circular_label_text_color
+        label.font          = UIFont.systemFont(ofSize: 20)
+        label.textAlignment = .left
+        return label
+    }()
+    
+
     let descLabel:UILabel = {
 
         let label = UILabel()
@@ -108,15 +120,7 @@ class ReportTableViewCell: BaseTableViewCell,UITableViewCellHeightProtocol {
 
         
         
-        let typeNameTitleLabel:UILabel = {
-            let label = UILabel()
-            label.textColor     = UIColor.circular_label_text_color
-            label.font          = UIFont.systemFont(ofSize: 20)
-            label.textAlignment = .left
-            return label
-        }()
-        
-        typeNameTitleLabel.text = "维";
+
         
         let typeNameLabel:UILabel = {
             
@@ -157,14 +161,13 @@ class ReportTableViewCell: BaseTableViewCell,UITableViewCellHeightProtocol {
 
         let padding:CGFloat     = 20
         let labelHeight:CGFloat = 20
-
         let topPadding:CGFloat = 8
         
         
         
         typeNameTitleLabel.snp.makeConstraints { (make) in
             make.left.equalTo(bgView).offset(0)
-            make.top.equalTo(bgView).offset(0)
+            make.top.equalTo(bgView).offset(-5)
             make.width.equalTo(40)
             make.height.equalTo(40)
         }
@@ -183,10 +186,10 @@ class ReportTableViewCell: BaseTableViewCell,UITableViewCellHeightProtocol {
             make.height.equalTo(labelHeight)
         }
         
-        let line:CGFloat = 7;
+        let line:CGFloat = 6;
         descNameLabel.snp.makeConstraints { (make) in
             make.left.equalTo(bgView).offset(padding)
-            make.top.equalTo(bgView).offset(ReportTableViewCell.cellHeight() - padding - labelHeight * line - CGFloat(40.0))
+            make.top.equalTo(bgView).offset(ReportTableViewCell.cellHeight() - padding - labelHeight * line - CGFloat(20.0))
             make.width.equalTo(bgView).multipliedBy(0.8)
             make.height.equalTo(labelHeight)
         }
@@ -195,7 +198,7 @@ class ReportTableViewCell: BaseTableViewCell,UITableViewCellHeightProtocol {
         descLabel.snp.makeConstraints { (make) in
             make.left.equalTo(bgView).offset(padding)
             make.top.equalTo(bgView).offset(ReportTableViewCell.cellHeight() - padding - labelHeight * line)
-            make.width.equalTo(bgView).multipliedBy(0.8)
+            make.width.equalTo(bgView).multipliedBy(0.9)
             make.height.equalTo(labelHeight * line)
         }
 

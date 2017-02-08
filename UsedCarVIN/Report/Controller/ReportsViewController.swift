@@ -165,6 +165,14 @@ extension ReportsViewController:UITableViewDelegate,UITableViewDataSource {
         
         let vehicle = self.dataArray[indexPath.row]
         
+        print("类型---"+vehicle.details!)
+        
+        if vehicle.details=="保养"  {
+        cell!.typeNameTitleLabel.text = "保";//
+        }else{
+        cell!.typeNameTitleLabel.text = "修";//维
+        }
+        
         cell!.descLabel.text   = vehicle.desc
         cell!.dateLabel.text    = vehicle.maintainDate
         cell!.mileLabel.text    = vehicle.miles
