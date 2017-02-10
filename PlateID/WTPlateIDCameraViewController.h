@@ -18,5 +18,5 @@
 @end
 
 @protocol PlateIDCameraResultDelegate <NSObject>
--(void)cameraResult:(PlateResult *)plateResult formViewController:(WTPlateIDCameraViewController *)viewController;
+-(void)cameraResultNP:(PlateResult *)plateResult formViewController:(WTPlateIDCameraViewController *)viewController;
 @end

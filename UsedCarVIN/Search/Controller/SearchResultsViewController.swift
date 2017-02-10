@@ -46,12 +46,27 @@ class SearchResultsViewController: BaseViewController {
 //
 //        return imageView
 //    }()
-//    let detailButton:UIButton = {
-//        let button = UIButton(type: .custom)
-//        button.setImage(UIImage(named:"icon_right_white_arrow"), for: .normal)
-//        return button
-//    }()
-//
+    let detailButton:UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named:"icon_right_white_arrow"), for: .normal)
+        button.frame = CGRect(x: UIScreen.main.bounds.width-50, y: 250, width: 40, height: 40)
+        return button
+    }()
+    
+    let detailButtonWei:UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named:"icon_right_white_arrow"), for: .normal)
+        button.frame = CGRect(x: UIScreen.main.bounds.width-50, y: 450, width: 40, height: 40)
+        return button
+    }()
+    
+    let detailButtonBao:UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named:"icon_right_white_arrow"), for: .normal)
+        button.frame = CGRect(x: UIScreen.main.bounds.width-50, y: 590, width: 40, height: 40)
+        return button
+    }()
+  
 //    var dataArray:[MaintenanceModel] = []
 
     var model:VehicleModel? = nil{
@@ -99,17 +114,35 @@ class SearchResultsViewController: BaseViewController {
         self.title = "车辆信息"
 //        self.isHiddenTabbar            = true
         self.view.backgroundColor      = UIColor.table_background
-//        self.detailButton.addTarget(self, action: #selector(showDetail), for: .touchUpInside)
+        self.detailButton.addTarget(self, action: #selector(showDetailBase), for: .touchUpInside)
+        self.detailButtonWei.addTarget(self, action: #selector(showDetailBaseWei), for: .touchUpInside)
+        self.detailButtonBao.addTarget(self, action: #selector(showDetailBaseBao), for: .touchUpInside)
     }
     
-    func showDetail() {
+    func showDetailBaseWei() {
 //        let detailVC = VehicleDetailViewController()
         let detailVC = ReportsViewController()
-//        detailVC.model = self.model
+        detailVC.theVin = (model?.vin)!
         self.navigationController?.pushViewController(detailVC, animated: true)
 //        UMEventsManager.Events.showVehicleAllDetail.count()
     }
 
+    func showDetailBaseBao() {
+        let detailVC = ReportsViewController()
+        detailVC.theVin = (model?.vin)!
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    func showDetailBase() {
+        let detailVC = VehicleDetailViewController()
+        detailVC.model = self.model
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    
+    
+    
+    
 //    func takePicture(){
 //        let imagePickerVC               = UIImagePickerController()
 //        imagePickerVC.allowsEditing     = true
@@ -132,8 +165,7 @@ class SearchResultsViewController: BaseViewController {
 //        }
         
       //查找维修记录
-//        let path = "http://120.77.66.101:8888/Vehicle/History?VIN=4JG1641861A355196"//4JG1641861A355196
-        let path = "http://120.77.66.101:8888/Vehicle/History?VIN=\(vin)"
+        let path = CARVIN_API_URL+"Vehicle/History?VIN=\(vin)"
         
         print("path->:"+path);
         
@@ -213,8 +245,8 @@ class SearchResultsViewController: BaseViewController {
 
     override func commonInit() {
 
-        let tapInfoGesture = UITapGestureRecognizer(target: self, action: #selector(showDetail))
-        self.infoView.addGestureRecognizer(tapInfoGesture)
+//        let tapInfoGesture = UITapGestureRecognizer(target: self, action: #selector(showDetail))
+//        self.infoView.addGestureRecognizer(tapInfoGesture)
 
 //        self.tableView.tableHeaderView = self.headerView()
 //        self.tableView.separatorStyle  = .none
@@ -229,7 +261,9 @@ class SearchResultsViewController: BaseViewController {
         self.view.addSubview(self.infoView)
 //        self.view.addSubview(self.tableView)
 //        self.view.addSubview(self.imageView)
-//        self.view.addSubview(self.detailButton)
+        self.view.addSubview(self.detailButton)
+        self.view.addSubview(self.detailButtonWei)
+        self.view.addSubview(self.detailButtonBao)
         self.view.setNeedsUpdateConstraints()
     }
 
@@ -250,6 +284,7 @@ class SearchResultsViewController: BaseViewController {
 
         button.addTarget(self, action: #selector(backAction(sender:)), for: .touchUpInside)
     }
+    
     override func updateViewConstraints() {
 
         if (!didSetupConstraints) {
@@ -341,7 +376,7 @@ class SearchResultsViewController: BaseViewController {
 //        var desc:String?//"AMG 0W40 MB229.5/A保养检查更换机油机滤/刹车片/刹车片 后ML/刹车防响膏/拆卸/安装前后车轮/摩擦片磨损传感器/更换前轴的制动摩擦衬块/更换后轴制动摩擦衬块/机油滤芯",
 //        var miles:String?//60976,
 //        var sanName:String?//null,
-//        var vin:String?//4JG1641861A355196
+//        var vin:String?//4JG1641861A355197
 //        */
 //        
 //        return cell!

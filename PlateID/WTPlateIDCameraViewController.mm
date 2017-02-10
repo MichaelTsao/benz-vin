@@ -310,7 +310,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 {
     if (self.delegate && _results.count >0  ) {
         
-        [self.delegate cameraResult:_results[0] formViewController:self];
+        [self.delegate cameraResultNP:_results[0] formViewController:self];
     }
     
     if (self.navigationController == nil){

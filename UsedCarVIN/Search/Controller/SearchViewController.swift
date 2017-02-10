@@ -13,7 +13,7 @@ import SwiftyButton
 import UIColor_Hex_Swift
 import Pager
 
-class SearchViewController: PagerController,PagerDataSource {
+class SearchViewController:  PagerController,PagerDataSource {
 
     let vinController = SearchVINViewController()
     let npController  = SearchNPViewController()
@@ -26,15 +26,49 @@ class SearchViewController: PagerController,PagerDataSource {
         self.title = "星睿VIN鉴定"
 
         self.setupPager()
+        
+        guard let barButtonItem   = UIBarButtonItem.whiteBackButton(),
+            let button:UIButton = barButtonItem.customView as? UIButton else {
+                return
+        }
+        
+        self.navigationItem.leftBarButtonItem = barButtonItem
+        button.addTarget(self, action: #selector(backAction(sender:)), for: .touchUpInside)
+
+        
     }
 
+    func backAction(sender:AnyObject) {
+        
+        if self.navigationController != nil {
+            
+            self.navigationController!.popViewController(animated: true)
+        }
+        else{
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    deinit {
+        NSLog("@%", self)
+    }
+
+//    func setRightBarNavigationItem() {
+//        
+//        guard let barButtonItem   = UIBarButtonItem.whiteBackButton(),
+//            let button:UIButton = barButtonItem.customView as? UIButton else {
+//                return
+//        }
+//        
+//        self.navigationItem.leftBarButtonItem = barButtonItem
+//        
+////        button.addTarget(self, action: #selector(backAction(sender:)), for: .touchUpInside)
+//    }
+    
+    
     func setupPager(){
         self.dataSource = self
-
         self.setupPager(tabNames: ["VIN","车牌"], tabControllers: [vinController,npController])
         customizeTab()
-
-
         vinController.delegate = self
         npController.delegate  = self
     }
@@ -122,7 +156,6 @@ extension SearchViewController:UITextFieldDelegate{
 }
 extension SearchViewController:SearchResultsProtocol {
     func searchedResult(model:VehicleModel, searchViewController: SearchContentViewController) {
-
         let searchResultsVC   = SearchResultsViewController()
         searchResultsVC.model = model
         self.navigationController?.pushViewController(searchResultsVC, animated: true)

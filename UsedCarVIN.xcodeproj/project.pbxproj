@@ -13,6 +13,8 @@
 		5C35E2CC1E47063A00773E62 /* XBDownloadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C35E2C81E47063A00773E62 /* XBDownloadTask.swift */; };
 		5C35E2CD1E47063A00773E62 /* XBNetHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C35E2C91E47063A00773E62 /* XBNetHandle.swift */; };
 		5C35E2CE1E47063A00773E62 /* XBNetworkingPublic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C35E2CA1E47063A00773E62 /* XBNetworkingPublic.swift */; };
+		5CB572C71E4C4F0700F19BC6 /* SearchBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB572C61E4C4F0700F19BC6 /* SearchBaseViewController.swift */; };
+		5CB572E71E4CA14B00F19BC6 /* DefineCarVin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB572E61E4CA14B00F19BC6 /* DefineCarVin.swift */; };
 		5CBBB4121E49E218008BE38E /* infoRepairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBBB4111E49E218008BE38E /* infoRepairView.swift */; };
 		5CBBB4141E49E23A008BE38E /* infoMaintainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBBB4131E49E23A008BE38E /* infoMaintainView.swift */; };
 		611FC73C1E0B5D7D00636E91 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 611FC73B1E0B5D7D00636E91 /* CoreTelephony.framework */; };
@@ -133,6 +135,8 @@
 		5C35E2C81E47063A00773E62 /* XBDownloadTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBDownloadTask.swift; sourceTree = "<group>"; };
 		5C35E2C91E47063A00773E62 /* XBNetHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBNetHandle.swift; sourceTree = "<group>"; };
 		5C35E2CA1E47063A00773E62 /* XBNetworkingPublic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBNetworkingPublic.swift; sourceTree = "<group>"; };
+		5CB572C61E4C4F0700F19BC6 /* SearchBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBaseViewController.swift; sourceTree = "<group>"; };
+		5CB572E61E4CA14B00F19BC6 /* DefineCarVin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefineCarVin.swift; sourceTree = "<group>"; };
 		5CBBB4111E49E218008BE38E /* infoRepairView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = infoRepairView.swift; sourceTree = "<group>"; };
 		5CBBB4131E49E23A008BE38E /* infoMaintainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = infoMaintainView.swift; sourceTree = "<group>"; };
 		611FC73B1E0B5D7D00636E91 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -376,6 +380,7 @@
 				A43330281E0775920078DB10 /* LaunchScreen.storyboard */,
 				A433302B1E0775920078DB10 /* Info.plist */,
 				C8B7590F1E07838B00E448C9 /* UsedCarVIN-Bridging-Header.h */,
+				5CB572E61E4CA14B00F19BC6 /* DefineCarVin.swift */,
 				C80E53A41E0CC45B00A65DF9 /* Validation */,
 				C8C8E7AE1E07E54F00F6364E /* Extension */,
 				C8B759131E0784F200E448C9 /* Helpers */,
@@ -513,6 +518,7 @@
 			isa = PBXGroup;
 			children = (
 				C8B759201E0789EA00E448C9 /* SearchViewController.swift */,
+				5CB572C61E4C4F0700F19BC6 /* SearchBaseViewController.swift */,
 				C8C8E7A61E07C42500F6364E /* SearchContentViewController.swift */,
 				C8C8E7A81E07C7C800F6364E /* SearchVINViewController.swift */,
 				C8C8E7AA1E07C80700F6364E /* SearchNPViewController.swift */,
@@ -876,10 +882,12 @@
 				C888709D1E10A5CE00FDEEEA /* DaimlerPlateModel.swift in Sources */,
 				A4E472B71E10BBF200E5C650 /* WTPlateIDCameraViewController.mm in Sources */,
 				C8F863381E091D2200EC35AA /* VehicleModel.swift in Sources */,
+				5CB572C71E4C4F0700F19BC6 /* SearchBaseViewController.swift in Sources */,
 				C85B5DEE1E126D3E00B0C6B2 /* UMEventsManager.swift in Sources */,
 				C80E53AA1E0CC45B00A65DF9 /* Validation.swift in Sources */,
 				C8F8632F1E08F2E200EC35AA /* BaseTableViewCell.swift in Sources */,
 				C8F8632B1E08DFFB00EC35AA /* UIColor+EXT.swift in Sources */,
+				5CB572E71E4CA14B00F19BC6 /* DefineCarVin.swift in Sources */,
 				C89710461E0A5FE0004111C7 /* CustomKeyboardView.swift in Sources */,
 				A4663C371E08C8AE00FCD5E4 /* DataSourceReader.m in Sources */,
 				C8FF870E1E0CAF660001B627 /* NoDelaysScrollView.swift in Sources */,

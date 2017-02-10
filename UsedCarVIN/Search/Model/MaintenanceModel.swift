@@ -23,7 +23,7 @@ class MaintenanceModel: NSObject {
     var desc:String?//"AMG 0W40 MB229.5/A保养检查更换机油机滤/刹车片/刹车片 后ML/刹车防响膏/拆卸/安装前后车轮/摩擦片磨损传感器/更换前轴的制动摩擦衬块/更换后轴制动摩擦衬块/机油滤芯",
     var miles:String?//60976,
     var sanName:String?//null,
-    var vin:String?//4JG1641861A355196
+    var vin:String?//4JG1641861A355197
     
     
 }

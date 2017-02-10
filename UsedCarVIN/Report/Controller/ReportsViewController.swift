@@ -11,6 +11,9 @@ import UIKit
 class ReportsViewController: BaseViewController {
     
     var dataArray:[MaintenanceModel] = []
+    
+    var theVin = ""
+    
     let tableView:UITableView = {
         let tableView = UITableView(frame: CGRect.zero, style: .plain)
         tableView.separatorStyle = .none
@@ -27,13 +30,13 @@ class ReportsViewController: BaseViewController {
         button.addTarget(self, action: #selector(backAction(sender:)), for: .touchUpInside)
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "维保记录"
         self.view.backgroundColor = UIColor.white
-        let vin = "4JG1641861A355196";
-        let path = "http://120.77.66.101:8888/Vehicle/History?VIN=\(vin)"
-        print("path->:"+path);
+        let path = CARVIN_API_URL+"vin/Vehicle/History?VIN=\(theVin)"
+        print("path theVin->:"+path);
         XBNetHandle.getRequestWithUrlStr(urlStr: path, successBlock: { (result) in
             let str = String(data:result!, encoding:String.Encoding.utf8)
             print("Json Str:");

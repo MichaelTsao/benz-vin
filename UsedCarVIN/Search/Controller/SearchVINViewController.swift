@@ -55,8 +55,7 @@ class SearchVINViewController: SearchContentViewController {
             }
             
             
-            let path = "http://120.77.66.101:8888/Vehicle?VIN=\(vinCode)"//
-//            let path = "http://120.77.66.101:8888/Vehicle?VIN=4JG1641861A35516"//4JG1641861A355196
+            let path = CARVIN_API_URL+"Vehicle?VIN=\(vinCode)"//
 
             XBNetHandle.getRequestWithUrlStr(urlStr: path, successBlock: { (result) in
                 //Data转换成String打印输出

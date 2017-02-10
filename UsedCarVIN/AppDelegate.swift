@@ -52,8 +52,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func getRootViewController() -> UIViewController {
 
 //        return SearchViewController()
-        let nav_search = UINavigationController(rootViewController: SearchViewController())
+//        let nav_search = UINavigationController(rootViewController: SearchViewController())
+        
+        let nav_search = UINavigationController(rootViewController: SearchBaseViewController())
+
+        
         return nav_search;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 //        return SplashPageViewController()
     }
 

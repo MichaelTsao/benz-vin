@@ -72,12 +72,12 @@ class SearchNPViewController: SearchContentViewController {
             return
         }
 
-        self.searchDeatil(licensePlate: province + licensePlate)
+        self.searchDeatilWithNP(licensePlate: province + licensePlate)
 
         UMEventsManager.Events.licenseSearch.count()
     }
 
-    func searchDeatil(licensePlate:String){
+    func searchDeatilWithNP(licensePlate:String){
 
         
         //生成模型 跳转到详情页面
@@ -88,9 +88,8 @@ class SearchNPViewController: SearchContentViewController {
         //赋值給vehicle 用delegate传递出去
         //将会显示详情页面-SearchResultsViewController
         
-//        let path = "http://120.77.66.101:8888/Vehicle?regNo=京NXX651".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!//4JG1641861A355196
         
-      let path = "http://120.77.66.101:8888/Vehicle?regNo=\(licensePlate)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+      let path = CARVIN_API_URL+"Vehicle?regNo=\(licensePlate)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         
         print("path->:"+path);
 
@@ -307,7 +306,7 @@ extension SearchNPViewController:CustomKeyboardViewDelegate{
 }
 
 extension SearchNPViewController:PlateIDCameraResultDelegate {
-    func cameraResult(_ plateResult: PlateResult!, form viewController: WTPlateIDCameraViewController!) {
+    func cameraResultNP(_ plateResult: PlateResult!, form viewController: WTPlateIDCameraViewController!) {
 
         print("plate license: \(plateResult.license), color: \(plateResult.color), confidence: \(plateResult.nConfidence), time: \(plateResult.nTime)")
 
@@ -321,7 +320,7 @@ extension SearchNPViewController:PlateIDCameraResultDelegate {
 
         self.validate(textControl: self.inputTextField)
 
-        self.searchDeatil(licensePlate:license)
+        self.searchDeatilWithNP(licensePlate:license)
 
         UMEventsManager.Events.licenseScanSuccess.count()
     }
