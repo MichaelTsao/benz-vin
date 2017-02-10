@@ -83,11 +83,13 @@ class SearchResultsViewController: BaseViewController {
             self.infoView.titleLabel.text         = newValue?.regNo
             self.infoView.ProductLabel.text         = newValue?.prodDate
             
-            if newValue?.location == nil {
-                self.infoView.productAreaLabel.value = "未知"
-            }else{
-                self.infoView.productAreaLabel.value = newValue?.location
-            }
+//            if newValue?.location == nil {
+//                self.infoView.productAreaLabel.value = "未知"
+//            }else{
+//                self.infoView.productAreaLabel.value = newValue?.location
+//            }
+            
+            self.infoView.productAreaLabel.value = everyTypeToString(from: newValue?.location ?? "")
             
             self.infoView.registrationDateLabel.value = newValue?.regDate
             self.infoView.usedCarLabel.value = (newValue?.used)!+"次"
@@ -105,8 +107,9 @@ class SearchResultsViewController: BaseViewController {
             self.infoView.circle.value = (newValue?.repair)!+"次\n维修"
             self.infoView.circleTwo.value = (newValue?.maintainTimes)!+"次\n保养"
             
-            self.daimlerVehicleMode(isDaimler: newValue?.isDaimler ?? false , vin:(newValue?.vin)!)
+//            self.daimlerVehicleMode(isDaimler: newValue?.isDaimler ?? false , vin:(newValue?.vin)!)
         }
+        
     }
 
     override func viewDidLoad() {
@@ -139,128 +142,10 @@ class SearchResultsViewController: BaseViewController {
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
-    
-    
-    
-    
-//    func takePicture(){
-//        let imagePickerVC               = UIImagePickerController()
-//        imagePickerVC.allowsEditing     = true
-//        imagePickerVC.sourceType        = .camera
-//        imagePickerVC.cameraCaptureMode = .photo
-//        imagePickerVC.delegate          = self
-//        self.present(imagePickerVC, animated: true, completion: nil)
-//    }
-
-    func daimlerVehicleMode(isDaimler:Bool, vin:String) {
-        //隐藏保养信息
-//        self.imageView.isHidden = false
-//        self.tableView.isHidden = true
-
-        //如果是Daimler车辆则显示保养信息隐藏拍摄图片
-//        if isDaimler == true {
-//            dataArray = [Mocks().maintenance1,Mocks().maintenance2,Mocks().maintenance3]
-//            self.imageView.isHidden = true
-//            self.tableView.isHidden = false
-//        }
-        
-      //查找维修记录
-        let path = CARVIN_API_URL+"Vehicle/History?VIN=\(vin)"
-        
-        print("path->:"+path);
-        
-        XBNetHandle.getRequestWithUrlStr(urlStr: path, successBlock: { (result) in
-            let str = String(data:result!, encoding:String.Encoding.utf8)
-            print("Json Str:");
-            print(str ?? "")
-            let json : AnyObject! = try? JSONSerialization
-                .jsonObject(with: result!, options:JSONSerialization.ReadingOptions.allowFragments) as AnyObject!
-            print("Json Object:"); print(json)
-            
-            let number :Int = json?["resultCode"] as! Int
-            
-            if (number == 0)
-            {
-                print("resultCode->:");
-                print(json)
-                
-                let dataDic = json?["data"] as? NSArray
-                
-                print("resultCode-dataDic>:");
-                print(dataDic ?? "")
-                
-//                dataArray = []
-//                self.imageView.isHidden = true
-//                self.tableView.isHidden = false
-                
-//                let names = ["hell0","world","let's","start"]
-                for var modelDic in dataDic! {
-                    let model = MaintenanceModel()
-                    model.type       = "维修"
-                    model.kilometres = "40027公里"
-                    model.date       = "2016-07-01"
-                    model.component  = "空调"
-                    model.content    = "更换氟管密封圈"
-                    
-                    model.regNo = (modelDic as AnyObject).object(forKey: "regNo") as! String?
-                    model.maintainDate = (modelDic as AnyObject).object(forKey: "maintainDate") as! String?
-                    model.details = (modelDic as AnyObject).object(forKey: "details") as! String?
-                    model.desc = (modelDic as AnyObject).object(forKey: "desc") as! String?
-//                    model.miles    = String(describing:(modelDic as AnyObject).object(forKey: "miles"))
-                    
-                    if let number = (modelDic as AnyObject).object(forKey: "miles") { // 建议的做法
-                        model.miles = String(describing:number)+"公里"
-                    }else{
-                         model.miles = ""
-                    }
-                    
-                    model.sanName    = String(describing:(modelDic as AnyObject).object(forKey: "sanName"))
-//                    model.vin    = (modelDic as AnyObject).object(forKey: "vin") as! String?
-//                    self.dataArray.append(model)
-                    print(modelDic)
-                }
-                
-//                self.imageView.isHidden = true
-//                self.tableView.isHidden = false
-                
-//                self.tableView.reloadData()
-                
-                
-            }else{
-                if let number = json?["message"] as? String {
-                    print(number)
-                    HUD.showErrorMsg(message: number)
-                }
-                
-            }
-            //                HUD.hideWaiting()
-        }) { (Error) in
-            //            code
-            print(Error ?? "")
-            //                HUD.hideWaiting()
-            HUD.showErrorMsg(message: "请求服务器出错")
-        }
-        
-    }
 
     override func commonInit() {
-
-//        let tapInfoGesture = UITapGestureRecognizer(target: self, action: #selector(showDetail))
-//        self.infoView.addGestureRecognizer(tapInfoGesture)
-
-//        self.tableView.tableHeaderView = self.headerView()
-//        self.tableView.separatorStyle  = .none
-//        self.tableView.backgroundColor = UIColor.table_background
-//        self.tableView.delegate        = self
-//        self.tableView.dataSource      = self
-
-
-//        let tapImageGesture = UITapGestureRecognizer(target: self, action: #selector(takePicture))
-//        self.imageView.addGestureRecognizer(tapImageGesture)
-
+        
         self.view.addSubview(self.infoView)
-//        self.view.addSubview(self.tableView)
-//        self.view.addSubview(self.imageView)
         self.view.addSubview(self.detailButton)
         self.view.addSubview(self.detailButtonWei)
         self.view.addSubview(self.detailButtonBao)

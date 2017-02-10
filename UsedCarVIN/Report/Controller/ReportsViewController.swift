@@ -69,17 +69,19 @@ class ReportsViewController: BaseViewController {
                     model.component  = "空调"
                     model.content    = "更换氟管密封圈"
                     
-                    model.regNo = (modelDic as AnyObject).object(forKey: "regNo") as! String?
-                    model.maintainDate = (modelDic as AnyObject).object(forKey: "maintainDate") as! String?
-                    model.details = (modelDic as AnyObject).object(forKey: "details") as! String?
-                    model.desc = (modelDic as AnyObject).object(forKey: "desc") as! String?
+                    model.regNo = everyTypeToString(from:(modelDic as AnyObject).object(forKey: "regNo") ?? "")
+                    model.maintainDate = everyTypeToString(from:(modelDic as AnyObject).object(forKey: "maintainDate") ?? "")
+                    model.details = everyTypeToString(from:(modelDic as AnyObject).object(forKey: "details") ?? "")
+                    model.desc = everyTypeToString(from:(modelDic as AnyObject).object(forKey: "desc") ?? "")
                     //                    model.miles    = String(describing:(modelDic as AnyObject).object(forKey: "miles"))
+//                    if let number = (modelDic as AnyObject).object(forKey: "miles") { // 建议的做法
+//                        model.miles = String(describing:number)+"公里"
+//                    }else{
+//                        model.miles = ""
+//                    }
+                    model.miles = everyTypeToString(from: (modelDic as AnyObject).object(forKey: "miles") ?? "")+"公里"
                     
-                    if let number = (modelDic as AnyObject).object(forKey: "miles") { // 建议的做法
-                        model.miles = String(describing:number)+"公里"
-                    }else{
-                        model.miles = ""
-                    }
+                    
                     
                     if let sanName = (modelDic as AnyObject).object(forKey: "sanName") {
                         model.sanName = String(describing:sanName)
@@ -90,7 +92,7 @@ class ReportsViewController: BaseViewController {
                         model.sanName = "SA1"
                     }
                     
-                    model.vin    = (modelDic as AnyObject).object(forKey: "vin") as! String?
+                    model.vin    = everyTypeToString(from: (modelDic as AnyObject).object(forKey: "vin") ?? "")
                     self.dataArray.append(model)
                     print(modelDic)
                 }

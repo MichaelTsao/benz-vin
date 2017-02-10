@@ -19,3 +19,10 @@ let CARVIN_API_URL = "https://oabint1.mercedes-benz.com.cn/"
 //{
 //    let kIOS7 = Double(UIDevice().systemVersion)>=7.0 ? 1 :0
 //}
+
+//强制转换字符串
+func everyTypeToString(from: Any) -> String {
+    var result = ""
+    result =  NSString.init(format:"%@",from as! CVarArg) as String 
+    return result
+}

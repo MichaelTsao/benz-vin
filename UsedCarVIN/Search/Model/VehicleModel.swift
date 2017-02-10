@@ -114,7 +114,6 @@ class VehicleModel: NSObject {
 //    }
     
     func parse(with orcData:[String:String]) {
-
         self.location           = orcData["产地"]
         self.bornYear           = orcData["生产年份"]
         self.factory            = orcData["厂家名称"]
@@ -147,28 +146,28 @@ class VehicleModel: NSObject {
     }
     
     func parseJson(orcData:NSDictionary) {
-        self.vin           = orcData.object(forKey: "vin") as! String?
-        self.regNo           = orcData.object(forKey: "regNo") as! String?//车牌
-        self.model           = orcData.object(forKey: "model") as! String?//车系
-        self.variant           = orcData.object(forKey: "variant") as! String?//车型
-        self.colour           = orcData.object(forKey: "colour") as! String?//颜色
-        self.trim           = orcData.object(forKey: "trim") as! String?//内饰
-        self.prodDate      = orcData.object(forKey: "prodDate") as! String?//生产年份 Date
-        self.regDate           = orcData.object(forKey: "regDate") as! String?//上牌日期 Date
-        self.age           = orcData.object(forKey: "age") as! String?//车龄 int
-        self.newPrice           = orcData.object(forKey: "newPrice") as! String?//新车指导价
-        self.averagePrice           = orcData.object(forKey: "averagePrice") as! String?//均价
-        self.used           = orcData.object(forKey: "used") as! String?//过户次数
-        self.miles           = orcData.object(forKey: "miles") as! String?//里程
-        self.repair           = orcData.object(forKey: "repair") as! String?//维修次数
-        self.orderRepair           = orcData.object(forKey: "orderRepair") as! String?//一般维修次数
-        self.sprayRepair           = orcData.object(forKey: "sprayRepair") as! String?//喷漆维修次数
-        self.sheetMetal           = orcData.object(forKey: "sheetMetal") as! String?//钣金维修次数
-        self.claimDemage           = orcData.object(forKey: "claimDemage") as! String?//索赔工作次数
-        self.maintain           = orcData.object(forKey: "maintain") as! String?//保养规律与否
-        self.maintainTimes           = orcData.object(forKey: "maintainTimes") as! String?//保养次数
-        self.averageMiles           = orcData.object(forKey: "averageMiles") as! String?//平均间隔里程
-        self.maintainDate           = orcData.object(forKey: "maintainDate") as! String?//最后维保日期
+        self.vin           = everyTypeToString(from: orcData.object(forKey: "vin")  ?? "")
+        self.regNo           = everyTypeToString(from: orcData.object(forKey: "regNo")  ?? "")//车牌
+        self.model           = everyTypeToString(from: orcData.object(forKey: "model")  ?? "")//车系
+        self.variant           = everyTypeToString(from: orcData.object(forKey: "variant")  ?? "")//车型
+        self.colour           = everyTypeToString(from: orcData.object(forKey: "colour")  ?? "")//颜色
+        self.trim           = everyTypeToString(from: orcData.object(forKey: "trim") ?? "")//内饰
+        self.prodDate = everyTypeToString(from: orcData.object(forKey: "prodDate") ?? "")//生产年份 Date
+        self.regDate = everyTypeToString(from: orcData.object(forKey: "regDate") ?? "")//上牌日期
+        self.age           = everyTypeToString(from: orcData.object(forKey: "age") ?? "")//车龄 int
+        self.newPrice           = everyTypeToString(from: orcData.object(forKey: "newPrice") ?? "")//新车指导价
+        self.averagePrice           = everyTypeToString(from: orcData.object(forKey: "averagePrice") ?? "")//均价
+        self.used           = everyTypeToString(from: orcData.object(forKey: "used") ?? "")//过户次数
+        self.miles           = everyTypeToString(from: orcData.object(forKey: "miles") ?? "")//里程
+        self.repair           = everyTypeToString(from: orcData.object(forKey: "repair") ?? "")//维修次数
+        self.orderRepair           = everyTypeToString(from: orcData.object(forKey: "orderRepair") ?? "")//一般维修次数
+        self.sprayRepair           = everyTypeToString(from: orcData.object(forKey: "sprayRepair") ?? "")//喷漆维修次数
+        self.sheetMetal           = everyTypeToString(from: orcData.object(forKey: "sheetMetal") ?? "")//钣金维修次数
+        self.claimDemage           = everyTypeToString(from: orcData.object(forKey: "claimDemage") ?? "")//索赔工作次数
+        self.maintain           = everyTypeToString(from: orcData.object(forKey: "maintain") ?? "")//保养规律与否
+        self.maintainTimes           = everyTypeToString(from: orcData.object(forKey: "maintainTimes") ?? "")//保养次数
+        self.averageMiles           = everyTypeToString(from: orcData.object(forKey: "averageMiles") ?? "")//平均间隔里程
+        self.maintainDate = everyTypeToString(from: orcData.object(forKey: "maintainDate") ?? "")//最后维保日期
     }
     
 }

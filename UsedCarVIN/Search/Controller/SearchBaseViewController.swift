@@ -62,7 +62,7 @@ class SearchBaseViewController: BaseViewController {
             }
             
             
-            let path = CARVIN_API_URL+"Vehicle?VIN=\(vinCode)"//
+            let path = CARVIN_API_URL+"vin/Vehicle?VIN=\(vinCode)"//
             
             XBNetHandle.getRequestWithUrlStr(urlStr: path, successBlock: { (result) in
                 //Data转换成String打印输出
@@ -143,7 +143,7 @@ class SearchBaseViewController: BaseViewController {
         
 
         
-        let path = CARVIN_API_URL+"Vehicle?regNo=\(licensePlate)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        let path = CARVIN_API_URL+"vin/Vehicle?regNo=\(licensePlate)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         
         print("path->:"+path);
         

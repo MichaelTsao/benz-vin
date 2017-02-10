@@ -89,7 +89,7 @@ class SearchNPViewController: SearchContentViewController {
         //将会显示详情页面-SearchResultsViewController
         
         
-      let path = CARVIN_API_URL+"Vehicle?regNo=\(licensePlate)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+      let path = CARVIN_API_URL+"vin/Vehicle?regNo=\(licensePlate)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         
         print("path->:"+path);
 
