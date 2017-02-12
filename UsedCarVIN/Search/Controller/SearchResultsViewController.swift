@@ -12,75 +12,45 @@ class SearchResultsViewController: BaseViewController {
 
     let infoView  = CarInfoView()
     
-//    let tableView = UITableView(frame: .zero, style: .plain)
-    
-//    let imageView:UIImageView = {
-//        let imageView = UIImageView(image: UIImage(named: "bg_camera"))
-//        imageView.isUserInteractionEnabled = true
-//
-//        let imageSize = imageView.image?.size ?? CGSize(width: 100, height: 100)
-//
-//        let actionLabel = UILabel(frame: CGRect(x: 4,
-//                                                y: imageSize.height/2+15,
-//                                                width: imageSize.width-8,
-//                                                height: 20))
-//
-//        actionLabel.font = UIFont.systemFont(ofSize: 12)
-//        actionLabel.text = "点击拍摄照片"
-//        actionLabel.textColor     = UIColor.gray
-//        actionLabel.textAlignment = .center
-//        actionLabel.backgroundColor = UIColor.table_background
-//        imageView.addSubview(actionLabel)
-//
-//        let imageLabel = UILabel(frame: CGRect(x: 0,
-//                                               y: imageSize.height/2+35,
-//                                               width: imageSize.width,
-//                                               height: 20))
-//
-//        imageLabel.font = UIFont.systemFont(ofSize: 12)
-//        imageLabel.text = "添加车辆速记"
-//        imageLabel.textColor     = UIColor.gray
-//        imageLabel.textAlignment = .center
-//        imageLabel.backgroundColor = UIColor.table_background
-//        imageView.addSubview(imageLabel)
-//
-//        return imageView
-//    }()
     let detailButton:UIButton = {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(named:"icon_right_white_arrow"), for: .normal)
-        button.frame = CGRect(x: UIScreen.main.bounds.width-50, y: 250, width: 40, height: 40)
+        button.setImage(UIImage(named:"ic_keyboard_arrow_right_48px-128"), for: .normal)
+        button.frame = CGRect(x: UIScreen.main.bounds.width-50, y: 200, width: 40, height: 40)
         return button
     }()
     
     let detailButtonWei:UIButton = {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(named:"icon_right_white_arrow"), for: .normal)
-        button.frame = CGRect(x: UIScreen.main.bounds.width-50, y: 450, width: 40, height: 40)
+        button.setImage(UIImage(named:"ic_keyboard_arrow_right_48px-128 (2)"), for: .normal)
+        button.frame = CGRect(x: UIScreen.main.bounds.width-50, y: 430, width: 40, height: 40)
         return button
     }()
     
     let detailButtonBao:UIButton = {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(named:"icon_right_white_arrow"), for: .normal)
-        button.frame = CGRect(x: UIScreen.main.bounds.width-50, y: 590, width: 40, height: 40)
+        button.setImage(UIImage(named:"ic_keyboard_arrow_right_48px-128 (2)"), for: .normal)
+        button.frame = CGRect(x: UIScreen.main.bounds.width-50, y: 570, width: 40, height: 40)
         return button
     }()
-  
-//    var dataArray:[MaintenanceModel] = []
-
+    
     var model:VehicleModel? = nil{
         willSet{
             
-//            self.infoView.carModelsTitleLabel.text = newValue?.title
+//            if newValue?.title == "" {
+//                self.infoView.carModelsTitleLabel.text = newValue?.model
+//            }else{
+//                self.infoView.carModelsTitleLabel.text = newValue?.title                
+//                print("titleis "+(newValue?.title)!)
+//            }
             
-            if newValue?.title == nil {
-                self.infoView.carModelsTitleLabel.text = newValue?.variant
+            if (newValue?.vin?.substring(to: 3)) == "LE4" {
+                self.infoView.carModelsTitleLabel.text = "国产"
             }else{
-                self.infoView.carModelsTitleLabel.text = newValue?.title
+                self.infoView.carModelsTitleLabel.text = "进口"
             }
             
-            self.infoView.titleLabel.text         = newValue?.regNo
+//            self.infoView.titleLabel.text         = newValue?.regNo
+            self.title = newValue?.regNo
             self.infoView.ProductLabel.text         = newValue?.prodDate
             
 //            if newValue?.location == nil {
@@ -114,7 +84,7 @@ class SearchResultsViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "车辆信息"
+//        self.title = "车辆信息"
 //        self.isHiddenTabbar            = true
         self.view.backgroundColor      = UIColor.table_background
         self.detailButton.addTarget(self, action: #selector(showDetailBase), for: .touchUpInside)

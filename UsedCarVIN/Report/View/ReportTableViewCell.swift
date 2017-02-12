@@ -106,7 +106,7 @@ class ReportTableViewCell: BaseTableViewCell,UITableViewCellHeightProtocol {
 //    }()
 
     override func commonInit() {
-        self.backgroundColor = UIColor(red: 47/255, green: 47/255, blue: 47/255, alpha: 1.00)
+        self.backgroundColor = UIColor(red: 41.0/255, green: 47.0/255, blue: 54.0/255, alpha: 1.00)
         
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.width

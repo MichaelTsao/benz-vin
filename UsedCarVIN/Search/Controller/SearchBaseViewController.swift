@@ -15,14 +15,16 @@ class SearchBaseViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "星睿识别"
+        
         self.view.backgroundColor = UIColor.white
         
-        self.cameraButtonVin.frame=CGRect(x: 0, y: UIScreen.main.bounds.height/2-130, width: 100, height: 100)
+        self.cameraButtonVin.frame=CGRect(x: 0, y: UIScreen.main.bounds.height/2-180, width: 160, height: 160)
         self.cameraButtonVin.center.x = self.view.center.x
         self.cameraButtonVin.addTarget(self, action: #selector(actionVin), for: .touchUpInside)
         self.view .addSubview(cameraButtonVin)
         
-        self.cameraButtonNp.frame=CGRect(x: 0, y: UIScreen.main.bounds.height/2+20, width: 100, height: 100)
+        self.cameraButtonNp.frame=CGRect(x: 0, y: UIScreen.main.bounds.height/2+30, width: 160, height: 160)
         self.cameraButtonNp.addTarget(self, action: #selector(actionNp), for: .touchUpInside)
         self.cameraButtonNp.center.x = self.view.center.x
         self.view .addSubview(cameraButtonNp)
@@ -31,7 +33,49 @@ class SearchBaseViewController: BaseViewController {
         self.cameraButtonHand.addTarget(self, action: #selector(actionHand), for: .touchUpInside)
         self.view .addSubview(cameraButtonHand)
         
+        
+        let leftImage = UIImage(named:"icon-camera-128")
+        let leftImageSize = leftImage?.size
+        
+        let rightImage = UIImage(named:"icon-camera-128")
+        let rightImageSize = rightImage?.size
+        
+        self.leftNaviItemButton.frame=CGRect(x: 0, y: 0, width: ((leftImageSize?.width)!/2), height: ((leftImageSize?.height)!/2))
+        self.rightNaviItemButton.frame=CGRect(x: 0, y: 0, width: ((rightImageSize?.width)!/2), height: ((rightImageSize?.height)!/2))
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: self.leftNaviItemButton)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.rightNaviItemButton)
+        
     }
+    
+//    override func setRightBarNavigationItem() {
+////        guard let barButtonItem   = UIBarButtonItem.whiteBackButton(),
+////            let button:UIButton = barButtonItem.customView as? UIButton else {
+////                return
+////        }
+////
+////        let barLeftItemButton = UIBarButtonItem.init()
+////        barLeftItemButton.backgroundImage(for: <#T##UIControlState#>, barMetrics: <#T##UIBarMetrics#>)
+////        
+////        
+////        self.navigationItem.leftBarButtonItem = barButtonItem
+////        button.addTarget(self, action: #selector(backAction(sender:)), for: .touchUpInside)
+//        
+//        
+//
+//
+//    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     func searchDeatilWithVin(vinCode:String){
         
@@ -62,7 +106,7 @@ class SearchBaseViewController: BaseViewController {
             }
             
             
-            let path = CARVIN_API_URL+"vin/Vehicle?VIN=\(vinCode)"//
+            let path = CARVIN_API_URL+"Vehicle?VIN=\(vinCode)"//
             
             XBNetHandle.getRequestWithUrlStr(urlStr: path, successBlock: { (result) in
                 //Data转换成String打印输出
@@ -143,7 +187,7 @@ class SearchBaseViewController: BaseViewController {
         
 
         
-        let path = CARVIN_API_URL+"vin/Vehicle?regNo=\(licensePlate)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        let path = CARVIN_API_URL+"Vehicle?regNo=\(licensePlate)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         
         print("path->:"+path);
         
@@ -203,77 +247,87 @@ class SearchBaseViewController: BaseViewController {
     }
     
     
+    
+    let leftNaviItemButton:UIButton = {
+        let button = UIButton(type: .custom)
+        let voiceImage = UIImage(named:"benze")
+        button.setImage(voiceImage, for: .normal)
+        return button
+    }()
+    
+    
+    let rightNaviItemButton:UIButton = {
+        let button = UIButton(type: .custom)
+        let voiceImage = UIImage(named:"menu-128")
+        button.setImage(voiceImage, for: .normal)
+        return button
+    }()
+    
+    
+    
+    
+    
+    
+    
     let cameraButtonVin:UIButton = {
         let button = UIButton(type: .custom)
-        let voiceImage = UIImage(named:"icon_camera_small")
-        button.backgroundColor = UIColor.init(red: 241.0/255, green: 241.0/255, blue: 241.0/255, alpha: 1)
-        button.layer.masksToBounds = true
-        button.layer.cornerRadius = 50.0
-        button.setTitle("VIN识别", for: .normal)
-        button.setTitleColor(UIColor.black, for: .normal)
-        button.setImage(voiceImage, for: .normal)
-        button.layer.borderWidth = 1.0
-        button.layer.borderColor = UIColor.init(red: 150.0/255, green: 150.0/255, blue: 150.0/255, alpha: 1).cgColor
+        let voiceImage = UIImage(named:"icon-camera-128")
         
-        button.imageEdgeInsets = UIEdgeInsetsMake(20, 32, 50, 0)
-        button.titleEdgeInsets = UIEdgeInsetsMake(50, -5, 0, 25)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 12.0)
+        
+        
+        button.backgroundColor = UIColor(red: 55.00/255, green: 62.00/255, blue: 70.00/255, alpha: 1.00)
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 80.0
+        button.setTitle("VIN识别", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.setImage(voiceImage, for: .normal)
+//        button.layer.borderWidth = 1.0
+//        button.layer.borderColor = UIColor.init(red: 150.0/255, green: 150.0/255, blue: 150.0/255, alpha: 1).cgColor
+        
+        let voiceImageSize = voiceImage?.size
+        button.imageEdgeInsets = UIEdgeInsetsMake(40, (160-(voiceImageSize?.width)!)/2, 160-40-(voiceImageSize?.height)!, (160-(voiceImageSize?.width)!)/2)
+        button.titleEdgeInsets = UIEdgeInsetsMake(60, -40, 0, 25)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 19.0)
         return button
     }()
     
     
     let cameraButtonNp:UIButton = {
         let button = UIButton(type: .custom)
-        let voiceImage = UIImage(named:"icon_camera_small")
-        button.backgroundColor = UIColor.init(red: 241.0/255, green: 241.0/255, blue: 241.0/255, alpha: 1)
+        let voiceImage = UIImage(named:"icon-camera-128")
+        button.backgroundColor = UIColor(red: 55.00/255, green: 62.00/255, blue: 70.00/255, alpha: 1.00)//init(red: 241.0/255, green: 241.0/255, blue: 241.0/255, alpha: 1)
         button.layer.masksToBounds = true
-        button.layer.cornerRadius = 50.0
+        button.layer.cornerRadius = 80.0
         button.setTitle("车牌识别", for: .normal)
-        button.setTitleColor(UIColor.black, for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
         button.setImage(voiceImage, for: .normal)
-        button.layer.borderWidth = 1.0
-        button.layer.borderColor = UIColor.init(red: 150.0/255, green: 150.0/255, blue: 150.0/255, alpha: 1).cgColor
+//        button.layer.borderWidth = 1.0
+//        button.layer.borderColor = UIColor.init(red: 150.0/255, green: 150.0/255, blue: 150.0/255, alpha: 1).cgColor
         
-        button.imageEdgeInsets = UIEdgeInsetsMake(20, 32, 50, 0)
-        button.titleEdgeInsets = UIEdgeInsetsMake(50, -8, 0, 25)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 12.0)
+        let voiceImageSize = voiceImage?.size
+        button.imageEdgeInsets = UIEdgeInsetsMake(40, (160-(voiceImageSize?.width)!)/2, 160-40-(voiceImageSize?.height)!, (160-(voiceImageSize?.width)!)/2)
+        button.titleEdgeInsets = UIEdgeInsetsMake(60, -40, 0, 25)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 19.0)
         return button
     }()
-    
     
     let cameraButtonHand:UIButton = {
         let button = UIButton(type: .custom)
-        
         button.backgroundColor = UIColor.init(red: 241.0/255, green: 241.0/255, blue: 241.0/255, alpha: 1)
-        //        button.backgroundColor = UIColor.blue
-        //        button.layer.masksToBounds = true
-        //        button.layer.cornerRadius = 50.0
         button.setTitle("手动输入", for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
-        //        button.setImage(voiceImage, for: .normal)
-        //        button.layer.borderWidth = 1.0
-        //        button.layer.borderColor = UIColor.init(red: 150.0/255, green: 150.0/255, blue: 150.0/255, alpha: 1).cgColor
-        //
-        //        button.imageEdgeInsets = UIEdgeInsetsMake(20, 32, 50, 0)
-        //        button.titleEdgeInsets = UIEdgeInsetsMake(50, -5, 0, 25)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 12.0)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 19.0)
         return button
     }()
-    
-
     
     func actionVin() {
         
         print("Navigate to camera view controller");
-        
         HUD.showWaiting()
-        
         let superview = self
         DispatchQueue.global(qos: .default).async {
-            
             let camersVC = CameraViewController()
             camersVC.delegate = superview
-            
             DispatchQueue.main.async {
                 superview.present(camersVC, animated: true) {
                     HUD.hideWaiting()
@@ -284,36 +338,26 @@ class SearchBaseViewController: BaseViewController {
     }
     
     func actionNp() {
-        
         print("Navigate to plate ID camera view controller");
-        
         HUD.showWaiting()
-        
         let superview = self
         DispatchQueue.global(qos: .default).async {
-            
             let camersVCNp = WTPlateIDCameraViewController()
             camersVCNp.delegate = superview
-            
             DispatchQueue.main.async {
                 superview.present(camersVCNp, animated: true) {
                     HUD.hideWaiting()
                 }
             }
         }
-        
         UMEventsManager.Events.licenseCamera.count()
     }
-
     
     func actionHand() {
-        
         print("Navigate to camera view controller");
         let searchResultsVC   = SearchViewController()
         self.navigationController?.pushViewController(searchResultsVC, animated: true)
-        
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -326,7 +370,6 @@ class SearchBaseViewController: BaseViewController {
     var addedLineView = false
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
         if (!addedLineView)
         {
             if let tabsView = self.view.viewWithTag(38) as? UIScrollView {

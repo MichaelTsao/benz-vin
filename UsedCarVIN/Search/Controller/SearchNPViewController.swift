@@ -88,9 +88,9 @@ class SearchNPViewController: SearchContentViewController {
         //赋值給vehicle 用delegate传递出去
         //将会显示详情页面-SearchResultsViewController
         
-        
-      let path = CARVIN_API_URL+"vin/Vehicle?regNo=\(licensePlate)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-        
+        //用IP的时候，没有vin目录
+        let path = CARVIN_API_URL+"Vehicle?regNo=\(licensePlate)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+
         print("path->:"+path);
 
         XBNetHandle.getRequestWithUrlStr(urlStr: path, successBlock: { (result) in

@@ -22,7 +22,7 @@ class CarInfoView: BaseView {
         let label  = UILabel()
         label.font = UIFont.systemFont(ofSize: 22)
         label.title = ""
-        label.textColor = UIColor.label_text_color
+        label.textColor = UIColor.circular_label_text_color
         return label
     }()
     
@@ -54,21 +54,30 @@ class CarInfoView: BaseView {
     lazy var milesLabelTip:UILabel        = CarInfoView.initLabelTip(titleLabel:"里程")
     lazy var milesLabel:UILabel        = CarInfoView.initLabelBlue(titleLabel:"")
     
+    var bgViewTop:UIView = UIView(frame: CGRect(
+        origin: CGPoint(x: 10, y: 10),
+        size: CGSize(width: 340, height: 220)))
+
     var bgView:UIView = BGView(frame: CGRect(
         origin: CGPoint(x: 10, y: 10),
         size: CGSize(width: 340, height: 220)))
+
     
     lazy var normalRepair:UILabel        = CarInfoView.initLabelTip(titleLabel:"一般修理    ")
     lazy var penqi:UILabel        = CarInfoView.initLabelTip(titleLabel:"喷漆修理    ")
     lazy var banjin:UILabel        = CarInfoView.initLabelTip(titleLabel:"钣金修理    ")
     lazy var suopei:UILabel        = CarInfoView.initLabelTip(titleLabel:"索赔工作    ")
 
+    var bgViewTowTop:UIView = UIView(frame: CGRect(
+        origin: CGPoint(x: 10, y: 10),
+        size: CGSize(width: 340, height: 220)))
+    
     var bgViewTow:UIView = BGView(frame: CGRect(
         origin: CGPoint(x: 10, y: 10),
         size: CGSize(width: 340, height: 220)))
 
-    lazy var baoyang:UILabel        = CarInfoView.initLabelTip(titleLabel:"最后保养日期 ")
-    lazy var licheng:UILabel        = CarInfoView.initLabelTip(titleLabel:"平均间隔历程 ")
+    lazy var baoyang:UILabel        = CarInfoView.initLabelTip(titleLabel:"最近保养日期 ")
+    lazy var licheng:UILabel        = CarInfoView.initLabelTip(titleLabel:"平均间隔里程 ")
     
     let circle:UILabel = {
         let view  = UILabel()//frame:CGRect(x: 0.0, y: 0.0, width: 90.0, height: .0)
@@ -127,14 +136,17 @@ class CarInfoView: BaseView {
     }
     
     
-    
+    var bgViewBottom:UIView = UIView(frame: CGRect(
+        origin: CGPoint(x: 10, y: 10),
+        size: CGSize(width: 340, height: 220)))
+
     
     
     override func commonInit() {
         
         self.backgroundColor = UIColor.table_new_background
         
-        self.addSubview(titleLabel)
+//        self.addSubview(titleLabel)
         
         self.addSubview(carModelsTitleLabel)
         
@@ -159,14 +171,15 @@ class CarInfoView: BaseView {
         self.addSubview(priceNowLabelTip)
         self.addSubview(priceNowLabel)
         
-        
-        
         self.addSubview(ageLabelTip)
         self.addSubview(ageLabel)
         
         self.addSubview(milesLabelTip)
         self.addSubview(milesLabel)
         
+        self.addSubview(bgViewTop)
+        bgViewTop.backgroundColor = UIColor.init(red: 0.0/255, green: 0.0/255, blue: 0.0/255, alpha: 1.0)
+
         self.addSubview(bgView)
         
         bgView.addSubview(circle)
@@ -181,6 +194,9 @@ class CarInfoView: BaseView {
         suopei.textColor = UIColor.white
         
         
+        self.addSubview(bgViewTowTop)
+        bgViewTowTop.backgroundColor = UIColor.init(red: 0.0/255, green: 0.0/255, blue: 0.0/255, alpha: 1.0)
+        
         self.addSubview(bgViewTow)
         
         bgViewTow.addSubview(circleTwo)
@@ -192,7 +208,9 @@ class CarInfoView: BaseView {
         
         titleLabel.textAlignment = .center
 
-
+        self.addSubview(bgViewBottom)
+        bgViewBottom.backgroundColor = UIColor.init(red: 0.0/255, green: 0.0/255, blue: 0.0/255, alpha: 1.0)
+        
         super.commonInit()
     }
 
@@ -209,16 +227,16 @@ class CarInfoView: BaseView {
             let labelHeight:CGFloat = 20
             let labelwidth:CGFloat = 160
             
-            self.titleLabel.snp.makeConstraints { (make) in
-                make.left.equalTo(superview).offset(leftPadding)
-                make.top.equalTo(superview).offset(vPaddingA)
-                make.right.equalTo(superview).offset(-leftPadding)
-                make.height.equalTo(leftPadding)
-            }
+//            self.titleLabel.snp.makeConstraints { (make) in
+//                make.left.equalTo(superview).offset(leftPadding)
+//                make.top.equalTo(superview).offset(vPaddingA)
+//                make.right.equalTo(superview).offset(-leftPadding)
+//                make.height.equalTo(leftPadding)
+//            }
             
             self.carModelsTitleLabel.snp.makeConstraints { (make) in
                 make.left.equalTo(superview).offset(leftPadding)
-                make.top.equalTo(titleLabel.snp.bottom).offset(vPaddingC)
+                make.top.equalTo(superview).offset(vPaddingC)
                 make.height.equalTo(labelTipHeight)
                 make.width.equalTo(labelwidth)
             }
@@ -352,19 +370,20 @@ class CarInfoView: BaseView {
             let screenSize = UIScreen.main.bounds
             let screenWidth = screenSize.width
             
-            self.bgView.snp.makeConstraints { (make) in
-                make.left.equalTo(10)
-                make.top.equalTo(milesLabel.snp.bottom).offset(vPaddingC)
-                make.height.equalTo(150)
-                make.width.equalTo(screenWidth - 20)
+            self.bgViewTop.snp.makeConstraints { (make) in
+                make.left.equalTo(0)
+                make.top.equalTo(milesLabel.snp.bottom).offset(10)
+                make.height.equalTo(20)
+                make.width.equalTo(screenWidth)
             }
-            
-//            self.circle.snp.makeConstraints { (make) in
-//                make.left.equalTo(20)
-//                make.top.equalTo(bgView.snp.bottom).offset(0)
-//                make.height.equalTo(30)
-//                make.width.equalTo(30)
-//            }
+
+            self.bgView.snp.makeConstraints { (make) in
+                make.left.equalTo(0)
+                make.top.equalTo(bgViewTop.snp.bottom).offset(0)
+                make.height.equalTo(150)
+                make.width.equalTo(screenWidth)
+            }
+
             
             self.circle.snp.makeConstraints { (make) in
                 make.left.equalTo(bgView).offset(20)
@@ -401,11 +420,26 @@ class CarInfoView: BaseView {
                 make.width.equalTo(labelwidth)
             }
 
+            self.bgViewTowTop.snp.makeConstraints { (make) in
+                make.left.equalTo(0)
+                make.top.equalTo(bgView.snp.bottom).offset(0)
+                make.height.equalTo(10)
+                make.width.equalTo(screenWidth)
+            }
+
             self.bgViewTow.snp.makeConstraints { (make) in
-                make.left.equalTo(10)
-                make.top.equalTo(bgView.snp.bottom).offset(vPaddingC)
+                make.left.equalTo(0)
+                make.top.equalTo(bgViewTowTop.snp.bottom).offset(0)
+                make.height.equalTo(120)
+                make.width.equalTo(screenWidth)
+            }
+
+            
+            self.bgViewBottom.snp.makeConstraints { (make) in
+                make.left.equalTo(0)
+                make.top.equalTo(bgViewTow.snp.bottom).offset(0)
                 make.height.equalTo(100)
-                make.width.equalTo(screenWidth - 20)
+                make.width.equalTo(screenWidth)
             }
             
             self.circleTwo.snp.makeConstraints { (make) in
@@ -417,76 +451,17 @@ class CarInfoView: BaseView {
             
             self.baoyang.snp.makeConstraints { (make) in
                 make.left.equalTo(normalRepair)
-                make.top.equalTo(bgViewTow.snp.top).offset(vPaddingC)
+                make.top.equalTo(bgViewTow.snp.centerY).offset(-30)
                 make.height.equalTo(labelHeight)
-                make.width.equalTo(labelwidth)
+                make.width.equalTo(labelwidth+100)
             }
             
             self.licheng.snp.makeConstraints { (make) in
                 make.left.equalTo(normalRepair)
-                make.top.equalTo(baoyang.snp.bottom).offset(vPaddingC)
+                make.top.equalTo(bgViewTow.snp.centerY).offset(10)
                 make.height.equalTo(labelHeight)
                 make.width.equalTo(labelwidth + CGFloat(50))
             }
-            
-            /*
-            self.vinLabel.snp.makeConstraints { (make) in
-                make.left.equalTo(titleLabel)
-                make.top.equalTo(titleLabel.snp.bottom).offset(vPadding * 2)
-                make.width.equalTo(superview).multipliedBy(0.7)
-                make.height.equalTo(labelHeight)
-            }
-
-            self.locationLabel.snp.makeConstraints { (make) in
-                make.left.equalTo(titleLabel)
-                make.top.equalTo(vinLabel.snp.bottom).offset(vPadding)
-                make.width.equalTo(80)
-                make.height.equalTo(labelHeight)
-            }
-
-            self.factoryLabel.snp.makeConstraints { (make) in
-                make.left.equalTo(locationLabel.snp.right).offset(vPadding)
-                make.top.equalTo(locationLabel)
-                make.width.equalTo(100)
-                make.height.equalTo(labelHeight)
-            }
-
-            self.bornLabel.snp.makeConstraints { (make) in
-                make.left.equalTo(factoryLabel.snp.right).offset(vPadding)
-                make.top.equalTo(locationLabel)
-                make.width.equalTo(100)
-                make.height.equalTo(labelHeight)
-            }
-
-            self.powerLabel.snp.makeConstraints { (make) in
-                make.left.equalTo(titleLabel)
-                make.top.equalTo(locationLabel.snp.bottom).offset(vPadding)
-                make.height.equalTo(labelHeight)
-            }
-
-            self.fuelLabel.snp.makeConstraints { (make) in
-                make.left.equalTo(powerLabel.snp.right).offset(vPadding)
-                make.right.equalTo(titleLabel.snp.right)
-                make.top.equalTo(locationLabel.snp.bottom).offset(vPadding)
-                make.height.equalTo(labelHeight)
-                make.width.equalTo(superview.powerLabel)
-            }
-
-            self.cylindersLabel.snp.makeConstraints { (make) in
-                make.left.equalTo(titleLabel)
-                make.top.equalTo(powerLabel.snp.bottom).offset(vPadding)
-                make.height.equalTo(labelHeight)
-            }
-
-            self.carModeLabel.snp.makeConstraints { (make) in
-                make.left.equalTo(cylindersLabel.snp.right).offset(vPadding)
-                make.right.equalTo(titleLabel)
-                make.top.equalTo(powerLabel.snp.bottom).offset(vPadding)
-                make.width.equalTo(cylindersLabel)
-                make.height.equalTo(labelHeight)
-            }
-            
-*/
             
             didSetupConstraints = true
         }

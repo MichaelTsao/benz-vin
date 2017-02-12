@@ -55,7 +55,7 @@ class SearchVINViewController: SearchContentViewController {
             }
             
             
-            let path = CARVIN_API_URL+"vin/Vehicle?VIN=\(vinCode)"//
+            let path = CARVIN_API_URL+"Vehicle?VIN=\(vinCode)"//
 
             XBNetHandle.getRequestWithUrlStr(urlStr: path, successBlock: { (result) in
                 //Data转换成String打印输出

@@ -142,7 +142,7 @@ class VehicleModel: NSObject {
         self.fuelNo             = orcData["燃油标号"]
         self.cylinderCount      = orcData["发动机缸数"]
         self.driveMode          = orcData["驱动方式"]
-        self.title = (brand ?? "") + " " + (name ?? "")
+        self.title = (brand ?? "") + " " + (series ?? "")
     }
     
     func parseJson(orcData:NSDictionary) {

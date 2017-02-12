@@ -49,6 +49,11 @@ extension UIColor {
         return UIColor.init("#2A2F36")
         }}
     
+    //    首页扫描按钮背景颜色
+    open class var saerch_button_background_color: UIColor { get{
+        return UIColor.init(red: 90.0/255.0, green: 90.0/255.0, blue: 90.0/255.0, alpha: 1.0)
+        }}
+    
     
     open class var nav_black: UIColor { get{
         return UIColor.init(red: 36.0/255.0, green: 36.0/255.0, blue: 36.0/255.0, alpha: 1.0)

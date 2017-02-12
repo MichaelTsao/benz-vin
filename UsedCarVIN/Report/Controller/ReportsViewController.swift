@@ -35,7 +35,8 @@ class ReportsViewController: BaseViewController {
         super.viewDidLoad()
         self.title = "维保记录"
         self.view.backgroundColor = UIColor.white
-        let path = CARVIN_API_URL+"vin/Vehicle/History?VIN=\(theVin)"
+        let path = CARVIN_API_URL+"Vehicle/History?VIN=\(theVin)"
+
         print("path theVin->:"+path);
         XBNetHandle.getRequestWithUrlStr(urlStr: path, successBlock: { (result) in
             let str = String(data:result!, encoding:String.Encoding.utf8)
