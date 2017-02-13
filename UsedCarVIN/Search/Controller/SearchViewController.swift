@@ -23,7 +23,7 @@ class SearchViewController:  PagerController,PagerDataSource {
 
         self.navigationController?.navigationBar.barStyle = .black;
         self.view.backgroundColor = UIColor.white
-        self.title = "星睿VIN鉴定"
+//        self.title = "星睿VIN鉴定"
 
         self.setupPager()
         

@@ -10,7 +10,7 @@ import UIKit
 
 class VehicleModel: NSObject {
     
-    var title:String?                //车title
+    var title:String?                   //车title
     var location:String?                //产地
     var bornYear:String?                //生产年份
     var factory:String?                 //厂家名称
@@ -19,7 +19,7 @@ class VehicleModel: NSObject {
     var level:String?                   //车辆级别
     var type:String?                    //车辆类型
     var year:String?                    //年款
-    var name:String?                   //销售名称
+    var name:String?                    //销售名称
     var price:String?                   //指导价格
     var releaseYear:String?             //上市年份
     var releaseMonth:String?            //上市月份
@@ -44,21 +44,21 @@ class VehicleModel: NSObject {
      * 服务器取得车辆参数 2017年02月05日15:09:13
      */
     
-    var vin:String?                //VIN
-    var regNo:String?                //车牌
-    var model:String?                //车系
-    var variant:String?                //车型
+    var vin:String?                   //VIN
+    var regNo:String?                 //车牌
+    var model:String?                 //车系
+    var variant:String?               //车型字段
     var colour:String?                //颜色
-    var trim:String?                //内饰
-    var prodDate:String?                //生产年份 Date
-    var regDate:String?                //上牌日期 Date
-    var age:String?                //车龄 int
-    var newPrice:String?                //新车指导价
-    var averagePrice:String?                //均价
-    var used:String?                //过户次数
-    var miles:String?                //里程
+    var trim:String?                  //内饰
+    var prodDate:String?              //生产年份 Date
+    var regDate:String?               //上牌日期 Date
+    var age:String?                   //车龄 int
+    var newPrice:String?              //新车指导价
+    var averagePrice:String?          //均价
+    var used:String?                  //过户次数
+    var miles:String?                 //里程
     var repair:String?                //维修次数
-    var orderRepair:String?                //一般维修次数
+    var orderRepair:String?           //一般维修次数
     var sprayRepair:String?                //喷漆维修次数
     var sheetMetal:String?                //钣金维修次数
     var claimDemage:String?                //索赔工作次数

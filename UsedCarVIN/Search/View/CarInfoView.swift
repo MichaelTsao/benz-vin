@@ -23,13 +23,14 @@ class CarInfoView: BaseView {
         label.font = UIFont.systemFont(ofSize: 22)
         label.title = ""
         label.textColor = UIColor.circular_label_text_color
+
         return label
     }()
     
     lazy var productLabelTip:UILabel    = CarInfoView.initLabelTip(titleLabel:"生产年份")
     lazy var ProductLabel:UILabel       = CarInfoView.initLabel(titleLabel:"")
     
-    lazy var productAreaLabelTip:UILabel        = CarInfoView.initLabelTip(titleLabel:"产地")
+    lazy var productAreaLabelTip:UILabel        = CarInfoView.initLabelTip(titleLabel:"生产方式")
     lazy var productAreaLabel:UILabel        = CarInfoView.initLabel(titleLabel:"")
     
     
@@ -121,7 +122,7 @@ class CarInfoView: BaseView {
     class func initLabel(titleLabel:String = "") -> UILabel {
         let label = UILabel()
         label.title = ""
-        label.textColor = UIColor.label_text_color
+        label.textColor = UIColor.white
         label.font = UIFont.systemFont(ofSize: 20)
         return label
     }
@@ -144,7 +145,9 @@ class CarInfoView: BaseView {
     
     override func commonInit() {
         
-        self.backgroundColor = UIColor.table_new_background
+//        self.backgroundColor = UIColor.table_new_background
+        
+        self.backgroundColor = UIColor.back_background
         
 //        self.addSubview(titleLabel)
         

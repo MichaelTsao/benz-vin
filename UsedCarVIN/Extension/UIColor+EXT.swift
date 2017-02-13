@@ -16,7 +16,12 @@ extension UIColor {
 
         return UIColor.init("#F2F2F2")
     }}
-
+    
+    open class var back_background: UIColor { get{
+        
+        return UIColor.init(red: 0.0/255, green: 0.0/255, blue: 0.0/255, alpha: 1.0)
+        }}
+    
     open class var table_new_background: UIColor { get{
         
         return UIColor.init("#F1F1F1")

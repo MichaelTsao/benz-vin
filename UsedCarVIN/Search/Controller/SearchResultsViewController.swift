@@ -29,7 +29,7 @@ class SearchResultsViewController: BaseViewController {
     let detailButtonBao:UIButton = {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named:"ic_keyboard_arrow_right_48px-128 (2)"), for: .normal)
-        button.frame = CGRect(x: UIScreen.main.bounds.width-50, y: 570, width: 40, height: 40)
+        button.frame = CGRect(x: UIScreen.main.bounds.width-50, y: 585, width: 40, height: 40)
         return button
     }()
     
@@ -42,12 +42,15 @@ class SearchResultsViewController: BaseViewController {
 //                self.infoView.carModelsTitleLabel.text = newValue?.title                
 //                print("titleis "+(newValue?.title)!)
 //            }
+//            
             
-            if (newValue?.vin?.substring(to: 3)) == "LE4" {
-                self.infoView.carModelsTitleLabel.text = "国产"
-            }else{
-                self.infoView.carModelsTitleLabel.text = "进口"
-            }
+            self.infoView.carModelsTitleLabel.text = newValue?.variant
+            
+//            if (newValue?.vin?.substring(to: 3)) == "LE4" {
+//                self.infoView.carModelsTitleLabel.text = "国产"
+//            }else{
+//                self.infoView.carModelsTitleLabel.text = "进口"
+//            }
             
 //            self.infoView.titleLabel.text         = newValue?.regNo
             self.title = newValue?.regNo
@@ -59,14 +62,20 @@ class SearchResultsViewController: BaseViewController {
 //                self.infoView.productAreaLabel.value = newValue?.location
 //            }
             
-            self.infoView.productAreaLabel.value = everyTypeToString(from: newValue?.location ?? "")
+//            self.infoView.productAreaLabel.value = everyTypeToString(from: newValue?.location ?? "")
+            
+            if (newValue?.vin?.substring(to: 3)) == "LE4" {
+                self.infoView.productAreaLabel.text = "国产"
+            }else{
+                self.infoView.productAreaLabel.text = "进口"
+            }
             
             self.infoView.registrationDateLabel.value = newValue?.regDate
             self.infoView.usedCarLabel.value = (newValue?.used)!+"次"
             self.infoView.priceNewCarLabel.value = newValue?.newPrice
             self.infoView.priceNowLabel.value = newValue?.averagePrice
             self.infoView.ageLabel.value = newValue?.age
-            self.infoView.milesLabel.value = newValue?.miles
+            self.infoView.milesLabel.value = (newValue?.miles)!+"公里"
             self.infoView.normalRepair.value = (newValue?.orderRepair)!+"次"
             self.infoView.penqi.value = (newValue?.sprayRepair)!+"次"
             self.infoView.banjin.value = (newValue?.sheetMetal)!+"次"
@@ -86,7 +95,7 @@ class SearchResultsViewController: BaseViewController {
         super.viewDidLoad()
 //        self.title = "车辆信息"
 //        self.isHiddenTabbar            = true
-        self.view.backgroundColor      = UIColor.table_background
+        self.view.backgroundColor      = UIColor.back_background
         self.detailButton.addTarget(self, action: #selector(showDetailBase), for: .touchUpInside)
         self.detailButtonWei.addTarget(self, action: #selector(showDetailBaseWei), for: .touchUpInside)
         self.detailButtonBao.addTarget(self, action: #selector(showDetailBaseBao), for: .touchUpInside)

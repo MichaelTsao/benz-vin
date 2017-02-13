@@ -15,9 +15,9 @@ class SearchBaseViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "星睿识别"
+//        self.title = "星睿识别"
         
-        self.view.backgroundColor = UIColor.white
+        self.view.backgroundColor = UIColor.back_background
         
         self.cameraButtonVin.frame=CGRect(x: 0, y: UIScreen.main.bounds.height/2-180, width: 160, height: 160)
         self.cameraButtonVin.center.x = self.view.center.x
@@ -313,10 +313,11 @@ class SearchBaseViewController: BaseViewController {
     
     let cameraButtonHand:UIButton = {
         let button = UIButton(type: .custom)
-        button.backgroundColor = UIColor.init(red: 241.0/255, green: 241.0/255, blue: 241.0/255, alpha: 1)
+//        button.backgroundColor = UIColor.init(red: 241.0/255, green: 241.0/255, blue: 241.0/255, alpha: 1)
         button.setTitle("手动输入", for: .normal)
-        button.setTitleColor(UIColor.black, for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 19.0)
+        button.backgroundColor = UIColor(red: 55.00/255, green: 62.00/255, blue: 70.00/255, alpha: 1.00)//init(red: 241.0/255, green: 241.0/255, blue: 241.0/255, alpha: 1)
         return button
     }()
     
