@@ -14,53 +14,31 @@ class SearchResultsViewController: BaseViewController {
     
     let detailButton:UIButton = {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(named:"ic_keyboard_arrow_right_48px-128"), for: .normal)
-        button.frame = CGRect(x: UIScreen.main.bounds.width-50, y: 200, width: 40, height: 40)
+        button.backgroundColor = UIColor.clear
+//        button.setImage(UIImage(named:"ic_keyboard_arrow_right_48px-128 (2)"), for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 370)
         return button
     }()
     
     let detailButtonWei:UIButton = {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(named:"ic_keyboard_arrow_right_48px-128 (2)"), for: .normal)
-        button.frame = CGRect(x: UIScreen.main.bounds.width-50, y: 430, width: 40, height: 40)
-        return button
-    }()
-    
-    let detailButtonBao:UIButton = {
-        let button = UIButton(type: .custom)
-        button.setImage(UIImage(named:"ic_keyboard_arrow_right_48px-128 (2)"), for: .normal)
-        button.frame = CGRect(x: UIScreen.main.bounds.width-50, y: 585, width: 40, height: 40)
+        button.backgroundColor = UIColor.clear
+//        button.setImage(UIImage(named:"ic_keyboard_arrow_right_48px-128 (2)"), for: .normal)
+        button.frame = CGRect(x: 0, y: 370, width: UIScreen.main.bounds.width, height: 300)
         return button
     }()
     
     var model:VehicleModel? = nil{
         willSet{
             
-//            if newValue?.title == "" {
-//                self.infoView.carModelsTitleLabel.text = newValue?.model
-//            }else{
-//                self.infoView.carModelsTitleLabel.text = newValue?.title                
-//                print("titleis "+(newValue?.title)!)
-//            }
-//            
-            
             self.infoView.carModelsTitleLabel.text = newValue?.variant
-            
-//            if (newValue?.vin?.substring(to: 3)) == "LE4" {
-//                self.infoView.carModelsTitleLabel.text = "国产"
-//            }else{
-//                self.infoView.carModelsTitleLabel.text = "进口"
-//            }
-            
-//            self.infoView.titleLabel.text         = newValue?.regNo
             self.title = newValue?.regNo
-            self.infoView.ProductLabel.text         = newValue?.prodDate
             
-//            if newValue?.location == nil {
-//                self.infoView.productAreaLabel.value = "未知"
-//            }else{
-//                self.infoView.productAreaLabel.value = newValue?.location
-//            }
+            if newValue?.prodDate == "" {
+                self.infoView.ProductLabel.value = ""
+            }else{
+                self.infoView.ProductLabel.value = (newValue?.prodDate?.substring(to: 4))!+"年"
+            }
             
 //            self.infoView.productAreaLabel.value = everyTypeToString(from: newValue?.location ?? "")
             
@@ -82,11 +60,11 @@ class SearchResultsViewController: BaseViewController {
             self.infoView.suopei.value = (newValue?.claimDemage)!+"次"
             self.infoView.baoyang.value = newValue?.maintainDate
             self.infoView.licheng.value = (newValue?.averageMiles)!+"公里"
-            
             self.infoView.circle.value = (newValue?.repair)!+"次\n维修"
             self.infoView.circleTwo.value = (newValue?.maintainTimes)!+"次\n保养"
             
 //            self.daimlerVehicleMode(isDaimler: newValue?.isDaimler ?? false , vin:(newValue?.vin)!)
+            
         }
         
     }
@@ -98,7 +76,7 @@ class SearchResultsViewController: BaseViewController {
         self.view.backgroundColor      = UIColor.back_background
         self.detailButton.addTarget(self, action: #selector(showDetailBase), for: .touchUpInside)
         self.detailButtonWei.addTarget(self, action: #selector(showDetailBaseWei), for: .touchUpInside)
-        self.detailButtonBao.addTarget(self, action: #selector(showDetailBaseBao), for: .touchUpInside)
+//        self.detailButtonBao.addTarget(self, action: #selector(showDetailBaseBao), for: .touchUpInside)
     }
     
     func showDetailBaseWei() {
@@ -125,9 +103,9 @@ class SearchResultsViewController: BaseViewController {
     override func commonInit() {
         
         self.view.addSubview(self.infoView)
-        self.view.addSubview(self.detailButton)
+//        self.view.addSubview(self.detailButton)
         self.view.addSubview(self.detailButtonWei)
-        self.view.addSubview(self.detailButtonBao)
+//        self.view.addSubview(self.detailButtonBao)
         self.view.setNeedsUpdateConstraints()
     }
 

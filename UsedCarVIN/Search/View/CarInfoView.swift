@@ -27,7 +27,7 @@ class CarInfoView: BaseView {
         return label
     }()
     
-    lazy var productLabelTip:UILabel    = CarInfoView.initLabelTip(titleLabel:"生产年份")
+    lazy var productLabelTip:UILabel    = CarInfoView.initLabelTip(titleLabel:"年款")
     lazy var ProductLabel:UILabel       = CarInfoView.initLabel(titleLabel:"")
     
     lazy var productAreaLabelTip:UILabel        = CarInfoView.initLabelTip(titleLabel:"生产方式")
@@ -45,7 +45,7 @@ class CarInfoView: BaseView {
     lazy var priceNewCarLabelTip:UILabel        = CarInfoView.initLabelTip(titleLabel:"新车指导价")
     lazy var priceNewCarLabel:UILabel        = CarInfoView.initLabel(titleLabel:"")
     
-    lazy var priceNowLabelTip:UILabel        = CarInfoView.initLabelTip(titleLabel:"市场均价")
+    lazy var priceNowLabelTip:UILabel        = CarInfoView.initLabelTip(titleLabel:"二手车市场均价")
     lazy var priceNowLabel:UILabel        = CarInfoView.initLabel(titleLabel:"")
     
 
@@ -69,6 +69,11 @@ class CarInfoView: BaseView {
     lazy var banjin:UILabel        = CarInfoView.initLabelTip(titleLabel:"钣金修理    ")
     lazy var suopei:UILabel        = CarInfoView.initLabelTip(titleLabel:"索赔工作    ")
 
+    
+    let gotoImageView:UIImageView = UIImageView.init(image: UIImage.init(named: "goto"))
+    
+
+    
     var bgViewTowTop:UIView = UIView(frame: CGRect(
         origin: CGPoint(x: 10, y: 10),
         size: CGSize(width: 340, height: 220)))
@@ -140,20 +145,12 @@ class CarInfoView: BaseView {
     var bgViewBottom:UIView = UIView(frame: CGRect(
         origin: CGPoint(x: 10, y: 10),
         size: CGSize(width: 340, height: 220)))
-
-    
     
     override func commonInit() {
         
-//        self.backgroundColor = UIColor.table_new_background
-        
         self.backgroundColor = UIColor.back_background
         
-//        self.addSubview(titleLabel)
-        
         self.addSubview(carModelsTitleLabel)
-        
-        
         
         self.addSubview(productLabelTip)
         self.addSubview(ProductLabel)
@@ -200,7 +197,11 @@ class CarInfoView: BaseView {
         self.addSubview(bgViewTowTop)
         bgViewTowTop.backgroundColor = UIColor.init(red: 0.0/255, green: 0.0/255, blue: 0.0/255, alpha: 1.0)
         
+        
         self.addSubview(bgViewTow)
+        
+        self.addSubview(gotoImageView)
+
         
         bgViewTow.addSubview(circleTwo)
         
@@ -230,18 +231,11 @@ class CarInfoView: BaseView {
             let labelHeight:CGFloat = 20
             let labelwidth:CGFloat = 160
             
-//            self.titleLabel.snp.makeConstraints { (make) in
-//                make.left.equalTo(superview).offset(leftPadding)
-//                make.top.equalTo(superview).offset(vPaddingA)
-//                make.right.equalTo(superview).offset(-leftPadding)
-//                make.height.equalTo(leftPadding)
-//            }
-            
             self.carModelsTitleLabel.snp.makeConstraints { (make) in
                 make.left.equalTo(superview).offset(leftPadding)
                 make.top.equalTo(superview).offset(vPaddingC)
                 make.height.equalTo(labelTipHeight)
-                make.width.equalTo(labelwidth)
+                make.width.equalTo(labelwidth+200)
             }
             
             self.productLabelTip.snp.makeConstraints { (make) in
@@ -258,8 +252,6 @@ class CarInfoView: BaseView {
                 make.width.equalTo(labelwidth)
             }
             
-            
-            
             self.productAreaLabelTip.snp.makeConstraints { (make) in
                 make.left.equalTo(productLabelTip.snp.right).offset(leftPadding)
                 make.top.equalTo(productLabelTip.snp.top)
@@ -274,8 +266,6 @@ class CarInfoView: BaseView {
                 make.height.equalTo(labelHeight)
                 make.width.equalTo(labelwidth)
             }
-            
-            
             
             // 上牌日期，生产年份
             self.registrationDateLabelTip.snp.makeConstraints { (make) in
@@ -308,8 +298,6 @@ class CarInfoView: BaseView {
                 make.height.equalTo(labelHeight)
                 make.width.equalTo(labelwidth)
             }
-            
-            
             
             // 在质保期，过户
             self.priceNewCarLabelTip.snp.makeConstraints { (make) in
@@ -426,10 +414,17 @@ class CarInfoView: BaseView {
             self.bgViewTowTop.snp.makeConstraints { (make) in
                 make.left.equalTo(0)
                 make.top.equalTo(bgView.snp.bottom).offset(0)
-                make.height.equalTo(10)
+                make.height.equalTo(5)
                 make.width.equalTo(screenWidth)
             }
 
+            self.gotoImageView.snp.makeConstraints { (make) in
+                make.right.equalTo(bgViewTowTop).offset(10)
+                make.centerY.equalTo(bgViewTowTop)
+                make.height.equalTo(40)
+                make.width.equalTo(40)
+            }
+            
             self.bgViewTow.snp.makeConstraints { (make) in
                 make.left.equalTo(0)
                 make.top.equalTo(bgViewTowTop.snp.bottom).offset(0)

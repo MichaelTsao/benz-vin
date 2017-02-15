@@ -14,6 +14,7 @@ class ReportsViewController: BaseViewController {
     
     var theVin = ""
     
+    
     let tableView:UITableView = {
         let tableView = UITableView(frame: CGRect.zero, style: .plain)
         tableView.separatorStyle = .none
@@ -33,6 +34,9 @@ class ReportsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
+        
         self.title = "维保记录"
         self.view.backgroundColor = UIColor.white
         let path = CARVIN_API_URL+"Vehicle/History?VIN=\(theVin)"
@@ -58,10 +62,8 @@ class ReportsViewController: BaseViewController {
                 print("resultCode-dataDic>:");
                 print(dataDic ?? "")
                 
-                //                dataArray = []
                 self.tableView.isHidden = false
                 
-                //                let names = ["hell0","world","let's","start"]
                 for var modelDic in dataDic! {
                     let model = MaintenanceModel()
                     model.type       = "维修"
@@ -74,15 +76,7 @@ class ReportsViewController: BaseViewController {
                     model.maintainDate = everyTypeToString(from:(modelDic as AnyObject).object(forKey: "maintainDate") ?? "")
                     model.details = everyTypeToString(from:(modelDic as AnyObject).object(forKey: "details") ?? "")
                     model.desc = everyTypeToString(from:(modelDic as AnyObject).object(forKey: "desc") ?? "")
-                    //                    model.miles    = String(describing:(modelDic as AnyObject).object(forKey: "miles"))
-//                    if let number = (modelDic as AnyObject).object(forKey: "miles") { // 建议的做法
-//                        model.miles = String(describing:number)+"公里"
-//                    }else{
-//                        model.miles = ""
-//                    }
                     model.miles = everyTypeToString(from: (modelDic as AnyObject).object(forKey: "miles") ?? "")+"公里"
-                    
-                    
                     
                     if let sanName = (modelDic as AnyObject).object(forKey: "sanName") {
                         model.sanName = String(describing:sanName)
@@ -152,6 +146,7 @@ class ReportsViewController: BaseViewController {
 }
 
 extension ReportsViewController:UITableViewDelegate,UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataArray.count
     }
@@ -164,11 +159,12 @@ extension ReportsViewController:UITableViewDelegate,UITableViewDataSource {
         let identifierString = ReportTableViewCell.reuseIdentifierString!
         
         var cell:ReportTableViewCell? = tableView.dequeueReusableCell(withIdentifier: identifierString) as? ReportTableViewCell
-        
+
         if cell == nil {
             cell = ReportTableViewCell(style: .default, reuseIdentifier: identifierString)
+            cell?.selectionStyle = UITableViewCellSelectionStyle.none
         }
-        
+
         let vehicle = self.dataArray[indexPath.row]
         
         print("类型---"+vehicle.details!)
