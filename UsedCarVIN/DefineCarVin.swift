@@ -10,8 +10,8 @@ import Foundation
 
 let kIOS7 = Int(UIDevice().systemVersion)! >= 7 ? 1 : 0
 
-let CARVIN_API_URL = "http://120.77.66.101:8888/"
-//let CARVIN_API_URL = "https://oabint1.mercedes-benz.com.cn/vin/"
+//let CARVIN_API_URL = "http://120.77.66.101:8888/"
+let CARVIN_API_URL = "https://oabint1.mercedes-benz.com.cn/vin/"
 //let path = "http://120.77.66.101:8888/Vehicle?VIN=4JG1641861A35516"//4JG1641861A355196
 //        let path = "http://120.77.66.101:8888/Vehicle/History?VIN=4JG1641861A355196"
 
